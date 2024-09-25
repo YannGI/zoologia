@@ -22,18 +22,16 @@ public class SecurityConfiguration {
     {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/bootstrapin.min.css","/stylesign.css", "/images/**", "/signin", "/signup").permitAll()
+                        .requestMatchers("/bootstrapin.min.css","/stylesign_in.css", "/stylesign_up.css", "/images/**", "/signin", "/signup").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
                         .loginPage("/signin")
-                        .permitAll().usernameParameter("email").defaultSuccessUrl("/hometab", true)
+                        .permitAll().usernameParameter("email").defaultSuccessUrl("/HomeZoologia", true)
                 )
                 .logout((logout) -> logout.permitAll());
 
         return http.build();
     }
-
-
 
 }

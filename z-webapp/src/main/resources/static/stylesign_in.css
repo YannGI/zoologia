@@ -2,7 +2,7 @@
 
 html,body
 {
-  background-image: url('images/fond_leo_modif.jpeg');
+  background-image: url(fond_leo_modif.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
@@ -17,12 +17,13 @@ html,body
 
 .card
 {
-  height: 29.5em;
+  height: 22em;
   margin-top: auto;
   margin-bottom: auto;
   width: 32.25em;
-  background-color: rgba(0, 0, 0, 0.559) !important;
+  background-color: rgba(0, 0, 0, 0.701) !important;
   border-radius: 12px 12px 12px 12px;
+  box-shadow:  0 0 10px #f99500, 0 0 11.5px #ffc823d4;
 }
 
 .social_icon span:hover
@@ -92,12 +93,12 @@ margin-left: 4px;
 
 img
 {
-    margin:0px;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    height: 128px;
-    width:130px;
+  margin:0px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 7.5em;
+  height: 7.5em;
 }
 
 .wheel-and-hamster 
@@ -128,8 +129,8 @@ img
   transform: rotate(4deg) translate(-0.8em,1.85em);
   transform-origin: 50% 0;
   z-index: 1;
-  margin-left: 65px;
-  margin-top: -140px;
+  margin-left: 5em;
+  margin-top: -5.85em;
 }
 
 .hamster__head 
@@ -365,9 +366,11 @@ img
 .card2 
 {
   margin-top:218px;
-  margin-left: 50px;
-  width: 514px;
-  height: 473px;
+  margin-left: 30px;
+  /* width: 514px; */
+  /* height: 514px; */
+  width: 32em;
+  height: 22em;
   transition: all 0.2s;
   position: relative;
   cursor: pointer;
@@ -415,51 +418,56 @@ img
 
 @media screen AND (max-width:660px)
 {
-   .card
-    {
-      margin-left: 0em;
-      margin-right: 1em;
-      height: 29.5em;
-      margin-top: auto;
-      margin-bottom: auto;
-      width: 21em;
-      background-color: rgba(0, 0, 0, 0.559) !important;
-      border-radius: 12px 12px 12px 12px;
-    }
-
-    .card2
-    {
-      margin-top: 218px;
-      margin-left: 10px;
-      width: 21em;
-      height: 29.5em;
-      transition: all 0.2s;
-      position: relative;
-      cursor: pointer;
-    }
-
-    .hamster
-    {
-      animation: hamster var(--dur) ease-in-out infinite;
-      top: 50%;
-      left: calc(50% - 3.5em);
-      width: 7em;
-      height: 3.75em;
-      transform: rotate(4deg) translate(-0.8em,1.85em);
-      transform-origin: 50% 0;
-      z-index: 1;
-      margin-left: 0em;
-      margin-top: -140px;
-    }
-
-    .circle
-    {
-      width: 60px;
-      height: 60px;
-      background: radial-gradient( #ffcf3d, #ff7d3c );
-      border-radius: 50%;
-      position: absolute;
-      animation: move-up6 0.8s ease-in infinite alternate-reverse;
-    };
+  .card
+  {
+    margin-left: 0em;
+    margin-right: 1em;
+    height: 22em;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 21em;
+    background-color: rgba(0, 0, 0, 0.559) !important;
+    border-radius: 12px 12px 12px 12px;
   }
+
+  .card2 
+  {
+    margin-top: 218px;
+    margin-left: 10px;
+    width: 21em;
+    height: 22em;
+    transition: all 0.2s;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .hamster 
+  {
+    animation: hamster var(--dur) ease-in-out infinite;
+    top: 50%;
+    left: calc(50% - 3.5em);
+    width: 7em;
+    height: 3.75em;
+    transform: rotate(4deg) translate(-0.8em,1.85em);
+    transform-origin: 50% 0;
+    z-index: 1;
+    margin-left: 0.75em;
+    margin-top: -6.20em;
+  }
+
+  .circle
+  {
+    width: 60px;
+    height: 60px;
+    background: radial-gradient( #ffcf3d, #ff7d3c );
+    border-radius: 50%;
+    position: absolute;
+    animation: move-up6 0.8s ease-in infinite alternate-reverse;
+  }
+
+  h3
+  {
+    font-size: 1.25em;
+  }
+
 }
