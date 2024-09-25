@@ -1,10 +1,10 @@
-package YannGI.example.z_webapp;
+package YannGI;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ZWebappApplicationTests {
+class ZoologiaApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,10 +1,10 @@
-package YannGI.example.z_eurekaserver;
+package YannGI;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ZEurekaserverApplicationTests {
+class ZWebappApplicationTests {
 
 	@Test
 	void contextLoads() {
