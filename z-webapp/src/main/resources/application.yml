@@ -5,11 +5,11 @@ spring:
   profiles:
     active: "prod"
   config:
-    import: "optional:configserver:http://localhost8071/"
+    import: "optional:z-configserver:http://localhost8071/"
 
 server:
   servlet:
-    context-path: "/healthcare"
+    context-path: "/zoologia"
   port: 8072
 
 eureka:
