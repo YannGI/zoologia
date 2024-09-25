@@ -1,0 +1,28 @@
+
+spring:
+  application:
+    name: "webapp"
+  profiles:
+    active: "prod"
+  config:
+    import: "optional:configserver:http://localhost8071/"
+
+server:
+  servlet:
+    context-path: "/healthcare"
+  port: 8072
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: "http://localhost:8070/eureka/"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

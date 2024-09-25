@@ -1,0 +1,118 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <!--Bootsrap 4 CDN-->
+    <link rel="stylesheet" href="bootstrapin.min.css">
+
+    <!--Fontawesome CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!--Custom styles-->
+    <link rel="stylesheet"  href="stylehometab.css">
+</head>
+<body>
+<div class="container">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card2">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Patient list</h3>
+                </div>
+                <div class="card-body">
+                    <table class="minimalistBlack">
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>firstname</th>
+                            <th>lastname</th>
+                            <th>gender</th>
+                            <th>birthdate</th>
+                            <th>address</th>
+                            <th>phone</th>
+                            <th>email</th>
+                            <th>update</th>
+                            <th>delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="patient : ${patients}">
+                                <td th:text="${patient.id}"></td>
+                                <td style="width: 15%" th:text="${patient.firstname}"></td>
+                                <td style="width: 15%" th:text="${patient.lastname}"></td>
+                                <td th:text="${patient.gender}"></td>
+                                <td style="width: 10%" th:text="${patient.birthdate}"></td>
+                                <td th:text="${patient.address}"></td>
+                                <td th:text="${patient.phone}"></td>
+                                <td th:text="${patient.email}"></td>
+                                <!--<td style="width: 15%" class="text-center"></td>-->
+                                   <!-- <a style="width: 15%" th:href="@{/diabeteScoring/{id}(id=${patient.id})}">generate</a>-->
+                                <!-- <td style="width: 15%" class="text-center">
+                                    <a th:href="@{/note/list/{id}(id=${patient.id})}">manage</a>
+                                </td>-->
+                                <td style="width: 15%" class="text-center">
+                                    <a th:href="@{/edit/{id}(id=${patient.id})}">Edit</a>
+                                    <td>
+                                        <button><a th:href="@{|/hometab/${patient.id}|}">Delete</a></button>
+                                    </td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <form th:action="@{/hometab}" th:object="${patientForm}" method="post">
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input th:field="*{firstname}" type="text" class="form-control" name="firstname" placeholder="Prenom">
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input th:field="*{lastname}" type="text" class="form-control" name="lastname" placeholder="Nom">
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input th:field="*{gender}" type="text" class="form-control" name="gender" placeholder="gender">
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input th:field="*{birthdate}" type="date" class="form-control" name="birthdate" placeholder="birthdate">
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input th:field="*{address}" type="text" class="form-control" name="address" placeholder="address">
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input th:field="*{phone}" type="text" class="form-control" name="phone" placeholder="phone">
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input th:field="*{email}" type="text" class="form-control" name="email" placeholder="email">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="ajouter" class="btn float-right login_btn">
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

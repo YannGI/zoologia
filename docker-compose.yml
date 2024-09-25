@@ -1,0 +1,99 @@
+version: '2.20.2'
+
+services:
+
+  configserver:
+    image: yanngirardo/zoologia_z-configserver:latest
+    mem_limit: 700m
+    ports:
+      - "8071:8071"
+    networks:
+      - zoologiaN
+    healthcheck:
+      test: "curl --fail --silent localhost:8071/actuator/health/readiness | grep UP || exit 1"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  eurekaserver:
+    image: yanngirardo/zoologia_z-eurekaserver:latest
+    mem_limit: 700m
+    ports:
+      - "8070:8070"
+    networks:
+      - zoologiaN
+    depends_on:
+      configserver:
+        condition: service_healthy
+    healthcheck:
+      test: "curl --fail --silent localhost:8070/actuator/health/readiness | grep UP || exit 1"
+      interval: 12s
+      timeout: 5s
+      retries: 10
+      start_period: 12s
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 3
+        window: 120s
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
+
+  webapp:
+    image: yanngirardo/zoologia_z-webapp:latest
+    mem_limit: 700m
+    ports:
+      - "8072:8072"
+    networks:
+      - zoologiaN
+    depends_on:
+      eurekaserver:
+        condition: service_healthy
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 25s
+        max_attempts: 3
+        window: 120s
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071/
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
+
+  patient:
+    image: yanngirardo/zoologia_z-patient:latest
+    mem_limit: 700m
+    ports:
+      - "8073:8073"
+    networks:
+      - healthcare
+    depends_on:
+      mysql:
+        condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql_zoologia:3306/zoologia"
+      SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071/"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eurekaserver:8070/eureka/"
+
+  mysql:
+    image: mysql
+    container_name: mysql_zoologia
+    environment:
+      MYSQL_DATABASE: zoologia
+      MYSQL_ROOT_PASSWORD: Yann*060103
+    networks:
+      - zologiaN
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      timeout: 20s
+      retries: 10
+    ports:
+      - 3307:3306
+
+networks:
+  zoologiaN:
