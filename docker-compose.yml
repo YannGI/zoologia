@@ -3,7 +3,7 @@ version: '2.20.2'
 services:
 
   configserver:
-    image: yanngirardo/zoologia_z-configserver:latest
+    image: yanngirardo/zoologia_configserver:latest
     mem_limit: 700m
     ports:
       - "8071:8071"
@@ -17,7 +17,7 @@ services:
       start_period: 10s
 
   eurekaserver:
-    image: yanngirardo/zoologia_z-eurekaserver:latest
+    image: yanngirardo/zoologia_eurekaserver:latest
     mem_limit: 700m
     ports:
       - "8070:8070"
@@ -43,7 +43,7 @@ services:
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
 
   webapp:
-    image: yanngirardo/zoologia_z-webapp:latest
+    image: yanngirardo/zoologia_webapp:latest
     mem_limit: 700m
     ports:
       - "8072:8072"
@@ -84,7 +84,7 @@ services:
     image: mysql
     container_name: mysql_zoologia
     environment:
-      MYSQL_DATABASE: zoologia
+      MYSQL_DATABASE: zoologiaV2
       MYSQL_ROOT_PASSWORD: Yann*060103
     networks:
       - zologiaN

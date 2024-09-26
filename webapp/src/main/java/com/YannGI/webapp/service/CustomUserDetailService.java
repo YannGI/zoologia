@@ -1,4 +1,4 @@
-package YannGI.service;
+package com.YannGI.webapp.service;
 
 public class CustomUserDetailService
 {
