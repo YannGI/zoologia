@@ -1,9 +1,8 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-xmlns:th="http://www.thymeleaf.org"
->
 
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
 <head>
     <title>Sign In</title>
 
@@ -49,7 +48,7 @@ xmlns:th="http://www.thymeleaf.org"
                     <h3>Se connecter</h3>
                     <div class="d-flex justify-content-end social_icon">
                         <div class="img">
-                            <img src="ZOOLOGIA.png">
+                            <img th:src="@{images/ZOOLOGIA.png}">
                         </div>
                     </div>
 
@@ -78,10 +77,10 @@ xmlns:th="http://www.thymeleaf.org"
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-center links">
-                        Aucun compte ?<a th:href="@{/signup}">S'enregistrer</a>
+                        Aucun compte ? <a th:href="@{/signup}">S'enregistrer</a>
                     </div>
                     <div class="d-flex justify-content-center">
-                       un problème : . <a th:href="@{/contact}"> Contact / Message</a>
+                       un problème : <a th:href="@{/contact}"> Contact / Message</a>
                     </div>
                 </div>
             </div>
