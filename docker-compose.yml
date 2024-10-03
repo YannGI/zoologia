@@ -63,20 +63,20 @@ services:
       SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071/
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
 
-  patient:
-    image: yanngirardo/zoologia_z-patient:latest
+  user:
+    image: yanngirardo/zoologia_user:latest
     mem_limit: 700m
     ports:
       - "8073:8073"
     networks:
-      - healthcare
+      - zoologiaN
     depends_on:
       mysql:
         condition: service_healthy
       eurekaserver:
         condition: service_healthy
     environment:
-      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql_zoologia:3306/zoologia"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql_zoologia:3306/zoologiaV2"
       SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071/"
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eurekaserver:8070/eureka/"
 
@@ -93,7 +93,7 @@ services:
       timeout: 20s
       retries: 10
     ports:
-      - 3307:3306
+      - 3306:3306
 
 networks:
   zoologiaN:

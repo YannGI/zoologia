@@ -3,7 +3,9 @@ package com.YannGI.webapp.service.impl;
 import com.YannGI.webapp.model.User;
 import com.YannGI.webapp.service.UserServiceInterface;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserServiceImpl implements UserServiceInterface
 {
     final PasswordEncoder passwordEncoder;
@@ -13,9 +15,9 @@ public class UserServiceImpl implements UserServiceInterface
         this.passwordEncoder = passwordEncoder;
     }
 
-
     @Override
-    public User registration(User user) {
+    public User registration(User user)
+    {
         return null;
     }
 }
