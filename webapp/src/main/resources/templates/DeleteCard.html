@@ -1,5 +1,8 @@
+<!--
 <!doctype html>
-<html lang="fr">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
 
 <head>
   <meta charset="utf-8">
@@ -33,7 +36,7 @@
                 <div class="contain-navbar-buttons">
                     <button class="btn"><i class="fa-solid fa-house"></i> ACCUEIL</button>
                     <button class="btn"><i class="fa-solid fa-heart-circle-check"></i> FAVORIS</button>
-                    <button class="btn"> <i class="fa-solid fa-user"></i> COMPTE</button>
+                    <button class="btn"> <i class="fa-solid fa-utilisateur"></i> COMPTE</button>
                     <button class="btn"><i class="fa-solid fa-display"></i></i> L'APPLI</button>
                 </div>
                 <button class="btn menuburger"><i class="fa-solid fa-bars"></i></button>
@@ -42,7 +45,7 @@
     </header>
     <main class="main">
         <div class="card-header">
-            <h3>Patient list</h3>
+            <h3>Animal list</h3>
         </div>
         <div class="card-bodyL">
             <table class="minimalistBlack">
@@ -59,7 +62,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="patient : ${patients}">
+                    <tr th:each="animal : ${animal}">
                         <td th:text="${animal.idanimal}"></td>
                         <td th:text="${animal.idstatut}"></td>
                         <td th:text="${animal.idcategorie}"></td>
@@ -71,7 +74,7 @@
                         <td class="text-center">
                             <a th:href="@{/edit/{id}(id=${patient.id})}">Modif</a>
                             <td>
-                                <button class="deleteBTN"><a class="aDeleteBTN" th:href="@{|/hometab/${patient.id}|}">Suppr</a></button>
+                                <button class="deleteBTN"><a class="aDeleteBTN" th:href="@{|/hometab/${animal.id}|}">Suppr</a></button>
                             </td>
                         </td>
                     </tr>
@@ -80,4 +83,4 @@
         </div>
     </main>
       
-</body>
+</body>-->

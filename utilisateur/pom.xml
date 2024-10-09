@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.YannGI</groupId>
-	<artifactId>user</artifactId>
+	<artifactId>utilisateur</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>user</name>
+	<name>utilisateur</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

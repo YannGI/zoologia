@@ -44,5 +44,5 @@ eureka:
 info:
   app:
     name: "user"
-    description: "zoologia patient scoring Application"
+    description: "zoologia Application"
     version: "1.0.0"

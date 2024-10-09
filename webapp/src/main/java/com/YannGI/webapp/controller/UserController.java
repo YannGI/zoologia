@@ -1,5 +1,6 @@
 package com.YannGI.webapp.controller;
-import com.YannGI.webapp.model.User;
+
+import com.YannGI.webapp.model.Utilisateur;
 import com.YannGI.webapp.service.impl.UserServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,12 +24,12 @@ public class UserController
     @GetMapping("/signup")
     public ModelAndView showRegisterForm()
     {
-        return new ModelAndView("signup", "signUpForm", new User());
+        return new ModelAndView("signup", "signUpForm", new Utilisateur());
     }
     @PostMapping("/signup")
-    public ModelAndView processRequest(@ModelAttribute("signUpForm") User user )
+    public ModelAndView processRequest(@ModelAttribute("signUpForm") Utilisateur utilisateur)
     {
-        userServiceImpl.registration(user);
+        userServiceImpl.registration(utilisateur);
         return new ModelAndView("signin");
     }
 }

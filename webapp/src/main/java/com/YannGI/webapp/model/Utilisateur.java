@@ -2,13 +2,13 @@ package com.YannGI.webapp.model;
 
 /*@Entity*/
 /*@Data*/
-public class User
+public class Utilisateur
 {
    /* @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)*/
     private Integer iduser;
-    private Integer firstname;
-    private Integer lastname;
+    private String firstname;
+    private String lastname;
     private String username;
    /* @Column(unique = true)*/
     private String email;
@@ -16,10 +16,10 @@ public class User
     private String usertype;
     private String sirette;
 
-    public User() {
+    public Utilisateur() {
     }
 
-    public User(Integer iduser, Integer firstname, Integer lastname, String username, String email, String password, String usertype, String sirette) {
+    public Utilisateur(Integer iduser, String firstname, String lastname, String username, String email, String password, String usertype, String sirette) {
         this.iduser = iduser;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -38,19 +38,19 @@ public class User
         this.iduser = iduser;
     }
 
-    public Integer getFirstname() {
+    public String getFirstname() {
         return firstname;
     }
 
-    public void setFirstname(Integer firstname) {
+    public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
 
-    public Integer getLastname() {
+    public String getLastname() {
         return lastname;
     }
 
-    public void setLastname(Integer lastname) {
+    public void setLastname(String lastname) {
         this.lastname = lastname;
     }
 
