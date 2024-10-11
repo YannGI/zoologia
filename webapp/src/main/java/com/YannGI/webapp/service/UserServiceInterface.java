@@ -1,10 +1,11 @@
 package com.YannGI.webapp.service;
 import com.YannGI.webapp.model.Utilisateur;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public interface UserServiceInterface
 {
     public Utilisateur registration(Utilisateur utilisateur);
 
-    /*public User findUser(String username);*/
+    public Utilisateur findByUserName(String email);
 }

@@ -1,21 +1,16 @@
 package com.YannGI.webapp.service.client;
 
-
-
 import com.YannGI.webapp.model.Utilisateur;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.util.Optional;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @FeignClient("utilisateur")
 public interface UtilisateurFeignClient
 {
-    @RequestMapping(method = RequestMethod.POST, value = "/saveUser", consumes = "application/json")
-    Utilisateur saveUser (@RequestBody Utilisateur utilisateur1);
+    @PostMapping( value = "/saveUser", consumes = "application/json")
+    public ResponseEntity<Utilisateur> saveUser (@RequestBody Utilisateur utilisateur);
 
-    @RequestMapping(method = RequestMethod.POST, value = "/findUserByEmail", consumes = "application/json")
-    Optional<Utilisateur> findUserByEmail (@RequestBody String email);
+    @PostMapping( value = "/findUserByEmail", consumes = "application/json")
+    public ResponseEntity<Utilisateur> findUserByEmail (@RequestParam String email);
 }

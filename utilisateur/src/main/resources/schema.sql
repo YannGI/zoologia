@@ -1,21 +1,13 @@
--- DROP TABLE IF EXISTS `utilisateur`;
--- DROP TABLE IF EXISTS `categorie`;
--- DROP TABLE IF EXISTS `famille`;
--- DROP TABLE IF EXISTS `statut`;
--- DROP TABLE IF EXISTS `pays`;
--- DROP TABLE IF EXISTS `lieu`;
--- DROP TABLE IF EXISTS `animal`;
--- DROP TABLE IF EXISTS `jointure_animal_lieu`;
 
 CREATE TABLE  IF NOT EXISTS `utilisateur` (
 `iduser` int NOT NULL AUTO_INCREMENT,
 `firstname` varchar(60) NOT NULL,
-`lastnameutilisateur` varchar(60) NOT NULL,
+`lastname` varchar(60) NOT NULL,
 `username` varchar(60) NOT NULL,
 `email` varchar(100) NOT NULL UNIQUE,
 `password` varchar(45) NOT NULL,
-`sirette` varchar(45) NOT NULL,
-`usertype` int NOT NULL,
+`sirette` varchar(45),
+`usertype` int,
 PRIMARY KEY (`iduser`)
 );
 
