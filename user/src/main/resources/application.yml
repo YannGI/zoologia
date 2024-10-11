@@ -43,6 +43,6 @@ eureka:
 #info in eureka server dashboard
 info:
   app:
-    name: "utilisateur"
+    name: "user"
     description: "zoologia Application"
     version: "1.0.0"

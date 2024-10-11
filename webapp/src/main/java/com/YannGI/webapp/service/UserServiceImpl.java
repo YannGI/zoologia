@@ -1,7 +1,7 @@
 package com.YannGI.webapp.service;
 
 import com.YannGI.webapp.model.Utilisateur;
-import com.YannGI.webapp.service.client.UtilisateurFeignClient;
+import com.YannGI.webapp.service.client.UserFeignClient;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -9,29 +9,29 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserServiceInterface
 {
     private final PasswordEncoder passwordEncoder;
-    private final UtilisateurFeignClient utilisateurFeignClient;
+    private final UserFeignClient userFeignClient;
 
-    public UserServiceImpl(PasswordEncoder passwordEncoder, UtilisateurFeignClient utilisateurFeignClient)
+    public UserServiceImpl(PasswordEncoder passwordEncoder, UserFeignClient userFeignClient)
     {
         this.passwordEncoder = passwordEncoder;
-        this.utilisateurFeignClient = utilisateurFeignClient;
+        this.userFeignClient = userFeignClient;
     }
 
     @Override
     public Utilisateur registration(Utilisateur utilisateur)
     {
-        Utilisateur utilisateur1 = new Utilisateur();
-        utilisateur1.setFirstname(utilisateur.getFirstname());
-        utilisateur1.setLastname(utilisateur.getLastname());
-        utilisateur1.setUsername(utilisateur.getUsername());
-        utilisateur1.setEmail(utilisateur.getEmail());
-        utilisateur1.setPassword(passwordEncoder.encode(utilisateur.getPassword()));
-        return utilisateurFeignClient.saveUser(utilisateur1).getBody();
+       /* Utilisateur user = new Utilisateur();*/
+        utilisateur.setFirstname(utilisateur.getFirstname());
+        utilisateur.setLastname(utilisateur.getLastname());
+        utilisateur.setUsername(utilisateur.getUsername());
+        utilisateur.setEmail(utilisateur.getEmail());
+        utilisateur.setPassword(passwordEncoder.encode(utilisateur.getPassword()));
+        return userFeignClient.saveUser(utilisateur).getBody();
     }
 
     @Override
     public Utilisateur findByUserName(String email)
     {
-        return utilisateurFeignClient.findUserByEmail(email).getBody();
+        return userFeignClient.findUserByEmail(email).getBody();
     }
 }

@@ -23,9 +23,10 @@ public class UserController
         return userService.findUser(email);
     }
 
-    @PostMapping ("/saveUser")
-    public Utilisateur saveUser (@RequestBody Utilisateur utilisateur)
+    @PostMapping ("saveUser")
+    public Utilisateur saveUser (@RequestBody Utilisateur userSignUpForm)
     {
-        return userService.saveUser(utilisateur);
+        userService.saveUser(userSignUpForm);
+        return userSignUpForm;
     }
 }

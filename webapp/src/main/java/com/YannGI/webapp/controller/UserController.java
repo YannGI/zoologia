@@ -22,7 +22,7 @@ public class UserController
     @GetMapping("/")
     public ModelAndView home(Model model)
     {
-        return new ModelAndView("HomeZoologia");
+        return new ModelAndView("redirect:/HomeZoologia");
     }
 
     @GetMapping("/HomeZoologia")
@@ -34,13 +34,13 @@ public class UserController
     @GetMapping("/signup")
     public ModelAndView showRegisterForm()
     {
-        return new ModelAndView("signup", "signUpForm", new Utilisateur());
+        return new ModelAndView("signup", "userSignUpForm", new Utilisateur());
     }
 
     @PostMapping("/signup")
-    public ModelAndView processRequest(@ModelAttribute("signUpForm") Utilisateur utilisateur)
+    public ModelAndView userSignUp(@ModelAttribute("userSignUpForm") Utilisateur userSignUpForm)
     {
-        userServiceImpl.registration(utilisateur);
+        userServiceImpl.registration(userSignUpForm);
         return new ModelAndView("signin");
     }
 }

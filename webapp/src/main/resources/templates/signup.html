@@ -54,36 +54,41 @@
 
                 </div>
                 <div class="card-body">
-                    <form th:action="@{/signup}" th:object="${signUpForm}" method="post">
+                    <form th:action="@{/signup}" th:object="${userSignUpForm}" method="post">
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><<i class="fas fa-user"></i></span>
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
                             <input th:field="*{firstname}" type="text" name="firstname" class="form-control" placeholder=" prénom">
+                            <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstaneme}"></p>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
                             <input th:field="*{lastname}" type="text" name="lastname" class="form-control" placeholder=" nom">
+                            <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></p>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input th:field="*{username}" type="text" name="username" class="form-control" placeholder=" userName">
+                            <input th:field="*{username}" type="text" name="username" class="form-control" placeholder=" username">
+                            <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
                             <input th:field="*{email}" type="email" name="email" class="form-control" placeholder=" email">
+                            <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
                             <input th:field="*{password}" type="password" name="password" class="form-control" placeholder=" mot-de-passe">
+                            <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
                         </div>
                         <div class="row align-items-center remember">
                             <input type="checkbox">Se souvenir de moi

@@ -59,6 +59,4 @@ public class SecurityConfiguration
         return authenticationManagerBuilder.build();
     }
 
-
-
 }

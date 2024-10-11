@@ -5,7 +5,7 @@ CREATE TABLE  IF NOT EXISTS `utilisateur` (
 `lastname` varchar(60) NOT NULL,
 `username` varchar(60) NOT NULL,
 `email` varchar(100) NOT NULL UNIQUE,
-`password` varchar(45) NOT NULL,
+`password` varchar(200) NOT NULL,
 `sirette` varchar(45),
 `usertype` int,
 PRIMARY KEY (`iduser`)

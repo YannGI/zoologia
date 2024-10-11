@@ -63,7 +63,7 @@ services:
       SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071/
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
 
-  utilisateur:
+  user:
     image: yanngirardo/zoologia_user:latest
     mem_limit: 700m
     ports:
@@ -76,7 +76,7 @@ services:
       eurekaserver:
         condition: service_healthy
     environment:
-      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql_zoologia:3306/zoologiaV2"
+      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql_zoologia:3306/zoologiav2"
       SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071/"
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eurekaserver:8070/eureka/"
 
@@ -84,7 +84,7 @@ services:
     image: mysql
     container_name: mysql_zoologia
     environment:
-      MYSQL_DATABASE: zoologiaV2
+      MYSQL_DATABASE: zoologiav2
       MYSQL_ROOT_PASSWORD: Yann*060103
     networks:
       - zologiaN
