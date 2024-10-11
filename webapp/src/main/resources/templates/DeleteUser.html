@@ -13,7 +13,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Jaini&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
   </style>
-  <title>DeleteCard_Animal</title>
+  <title>DeleteUser</title>
 </head>
 
 <body class="body">
@@ -35,45 +35,39 @@
                 <div class="contain-navbar-buttons">
                     <button class="btn"><i class="fa-solid fa-house"></i> ACCUEIL</button>
                     <button class="btn"><i class="fa-solid fa-heart-circle-check"></i> FAVORIS</button>
-                    <button class="btn"> <i class="fa-solid fa-utilisateur"></i> COMPTE</button>
+                    <button class="btn"> <i class="fa-solid fa-user"></i> COMPTE</button>
                     <button class="btn"><i class="fa-solid fa-display"></i></i> L'APPLI</button>
                 </div>
                 <button class="btn menuburger"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
     </header>
+
     <main class="main">
-        <div class="card-header">
-            <h3>Animal list</h3>
-        </div>
+        <h2 class="titleCrea titleDelete">SUPPRIMER UN UTILISATEUR</h2>
+
         <div class="card-bodyL">
             <table class="minimalistBlack">
                 <thead>
                     <tr>
-                        <th>id animal</th>
-                        <th>id statut</th>
-                        <th>id categorie</th>
-                        <th>id famille</th>
-                        <th>nom</th>
-                        <th>taille</th>
-                        <th>poids</th>
-                        <th>regim alim</th>
+                        <th>id user</th>
+                        <th>firstname</th>
+                        <th>lastname</th>
+                        <th>username</th>
+                        <th>email</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="animal : ${animal}">
-                        <td th:text="${animal.idanimal}"></td>
-                        <td th:text="${animal.idstatut}"></td>
-                        <td th:text="${animal.idcategorie}"></td>
-                        <td th:text="${animal.nom}"></td>
-                        <td th:text="${animal.birthdate}"></td>
-                        <td th:text="${animal.taille}"></td>
-                        <td th:text="${animal.poids}"></td>
-                        <td th:text="${animal.regimalim}"></td>
+                    <tr th:each="utilisateur : ${utilisateurs}">
+                        <td th:text="${utilisateur.iduser}"></td>
+                        <td th:text="${utilisateur.firstname}"></td>
+                        <td th:text="${utilisateur.lastname}"></td>
+                        <td th:text="${utilisateur.username}"></td>
+                        <td th:text="${utilisateur.email}"></td>
                         <td class="text-center">
-                            <a th:href="@{/edit/{id}(id=${patient.id})}">Modif</a>
+                            <a th:href="@{/edit/{id}(id=${utilisateur.id})}">Modif</a>
                             <td>
-                                <button class="deleteBTN"><a class="aDeleteBTN" th:href="@{|/hometab/${animal.id}|}">Suppr</a></button>
+                                <button class="deleteBTN"><a class="aDeleteBTN" th:href="@{|/ZOOLOGIAhome/${utilisateur.id}|}">Suppr</a></button>
                             </td>
                         </td>
                     </tr>

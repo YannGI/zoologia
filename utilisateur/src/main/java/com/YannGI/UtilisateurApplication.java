@@ -8,13 +8,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScans;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.cloud.openfeign.EnableFeignClients;
-
-@ComponentScans({@ComponentScan("com.YannGI.utilisateur.controller")})
-@EnableJpaRepositories("com.YannGI.utilisateur.repository")
-@EntityScan("com.YannGI.utilisateur.model")
-@SpringBootApplication
+//@ComponentScans({@ComponentScan("com.YannGI.utilisateur.controller")})
+//@EnableJpaRepositories("com.YannGI.utilisateur.repository")
+//@EntityScan("com.YannGI.utilisateur.model")
 @EnableFeignClients
-@RefreshScope
+@SpringBootApplication
+//@RefreshScope
 public class UtilisateurApplication {
 
 	public static void main(String[] args) {

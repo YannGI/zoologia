@@ -13,7 +13,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Jaini&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
   </style>
-  <title>CreateCard_Animal</title>
+  <title>CreateUser</title>
 </head>
 
 <body class="body">
@@ -35,7 +35,7 @@
                 <div class="contain-navbar-buttons">
                     <button class="btn"><i class="fa-solid fa-house"></i> ACCUEIL</button>
                     <button class="btn"><i class="fa-solid fa-heart-circle-check"></i> FAVORIS</button>
-                    <button class="btn"> <i class="fa-solid fa-utilisateur"></i> COMPTE</button>
+                    <button class="btn"> <i class="fa-solid fa-user"></i> COMPTE</button>
                     <button class="btn"><i class="fa-solid fa-display"></i></i> L'APPLI</button>
                 </div>
                 <button class="btn menuburger"><i class="fa-solid fa-bars"></i></button>
@@ -44,65 +44,54 @@
     </header>
 
     <main>
-        <h2 class="titleCreaC">CREER UNE ANIMAL-CARD</h2>
+        <h2 class="titleCreaC">CREER UN UTILISATEUR</h2>
+        
         <section class="card-form">
-            <form th:action="@{/CreateCard}" method="post">
+            <form th:action="@{/CreateUser}" method="post">
                 <div class="input-group form-group1">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-otter f"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea" name="nom" placeholder=" nom">
+                    <input type="text" class="form-control form-crea" name="firstname" placeholder=" firstname">
                 </div>
                 <div class="input-group form-group2">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-weight-scale f"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea2" name="poids" placeholder=" poids">
+                    <input type="text" class="form-control form-crea2" name="lastname" placeholder=" lastname">
                 </div>
                 <div class="input-group form-group3">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-ruler-vertical f"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea" name="taille" placeholder=" taille">
+                    <input type="text" class="form-control form-crea" name="username" placeholder=" username">
                 </div>
                 <div class="input-group form-group4">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-utensils"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea2" name="regimAlim" placeholder=" regimAlim">
+                    <input type="text" class="form-control form-crea2" name="email" placeholder=" email">
                 </div>
                 <div class="input-group form-group5">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-people-group f"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea" name="famille" placeholder=" famille">
+                    <input type="text" class="form-control form-crea" name="password" placeholder=" password">
                 </div>
                 <div class="input-group form-group6">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-paw f"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea2" name="categorie" placeholder=" categorie">
+                    <input type="text" class="form-control form-crea2" name="usertype" placeholder=" usertype">
                 </div>
                 <div class="input-group form-group7">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-map-location-dot f"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea" name="lieux" placeholder=" lieux">
-                </div>
-                <div class="input-group form-group8">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text ff"><i class="fa-solid fa-temperature-half f"></i></span>
-                    </div>
-                    <input type="text" class="form-control form-crea2" name="statut" placeholder=" statut">
-                </div>
-                <div class="input-group form-group9">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa-solid fa-pen f"></i></span>
-                    </div>
-                    <input  type="text" class="form-control form-crea" name="description" placeholder=" description">
+                    <input type="text" class="form-control form-crea" name="sirette" placeholder=" sirette">
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="valider" class="btn btnFCrea">
+                    <input type="submit" value="valider" class="btn btnFCreaUser">
                 </div>
             </form>
         </section>
