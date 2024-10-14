@@ -13,9 +13,9 @@ public class CustomUserDetailsService implements UserDetailsService
     @Autowired
     private UserServiceImpl userService;
 
-    // #############################
-    // ## AuthentificationService ##
-    // #############################
+    // ######################################################
+    // ####### AuthentificationService ##  SECURITY #########
+    // ######################################################
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException
     {

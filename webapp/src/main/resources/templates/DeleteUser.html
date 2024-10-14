@@ -65,9 +65,10 @@
                         <td th:text="${utilisateur.username}"></td>
                         <td th:text="${utilisateur.email}"></td>
                         <td class="text-center">
-                            <a th:href="@{/edit/{id}(id=${utilisateur.id})}">Modif</a>
+                            <a th:href="@{/edit/{id}(id=${utilisateur.iduser})}">Modif</a>
                             <td>
-                                <button class="deleteBTN"><a class="aDeleteBTN" th:href="@{|/ZOOLOGIAhome/${utilisateur.id}|}">Suppr</a></button>
+                                <!--<button class="deleteBTN"><a class="aDeleteBTN" th:href="@{|/ZOOLOGIAhome/${utilisateur.iduser}|}">Suppr</a></button>-->
+                                <button class="deleteBTN"><a class="aDeleteBTN"  th:href="@{/deleteUser/{id}(id=${utilisateur.iduser})}">Suppr</a></button>
                             </td>
                         </td>
                     </tr>

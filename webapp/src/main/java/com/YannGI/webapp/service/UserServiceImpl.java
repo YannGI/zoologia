@@ -17,14 +17,18 @@ public class UserServiceImpl implements UserServiceInterface
         this.userFeignClient = userFeignClient;
     }
 
+    // #####################################################
+    // ################### SECURITY ########################
+    // #####################################################
+
     @Override
     public Utilisateur registration(Utilisateur utilisateur)
     {
-       /* Utilisateur user = new Utilisateur();*/
+       /* Utilisateur user = new Utilisateur();
         utilisateur.setFirstname(utilisateur.getFirstname());
         utilisateur.setLastname(utilisateur.getLastname());
         utilisateur.setUsername(utilisateur.getUsername());
-        utilisateur.setEmail(utilisateur.getEmail());
+        utilisateur.setEmail(utilisateur.getEmail());*/
         utilisateur.setPassword(passwordEncoder.encode(utilisateur.getPassword()));
         return userFeignClient.saveUser(utilisateur).getBody();
     }

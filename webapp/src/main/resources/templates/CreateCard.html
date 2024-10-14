@@ -46,60 +46,68 @@
     <main>
         <h2 class="titleCreaC">CREER UNE ANIMAL-CARD</h2>
         <section class="card-form">
-            <form th:action="@{/CreateCard}" method="post">
+            <form th:action="@{/CreateCard}" th:object="${animal}" method="post">
                 <div class="input-group form-group1">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-otter f"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea" name="nom" placeholder=" nom">
+                    <input th:field="*{nom}" type="text" class="form-control form-crea" name="nom" placeholder=" nom">
+                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></p>
                 </div>
                 <div class="input-group form-group2">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-weight-scale f"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea2" name="poids" placeholder=" poids">
+                    <input th:field="*{poids}" type="text" class="form-control form-crea2" name="poids" placeholder=" poids">
+                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('poids')}" th:errors="*{poids}"></p>
                 </div>
                 <div class="input-group form-group3">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-ruler-vertical f"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea" name="taille" placeholder=" taille">
+                    <input th:field="*{taille}" type="text" class="form-control form-crea" name="taille" placeholder=" taille">
+                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('taille')}" th:errors="*{taille}"></p>
                 </div>
                 <div class="input-group form-group4">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-utensils"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea2" name="regimAlim" placeholder=" regimAlim">
+                    <input th:field="*{regimalim}" type="text" class="form-control form-crea2" name="regimalim" placeholder=" regimAlimentaire">
+                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('regimalim')}" th:errors="*{regimalim}"></p>
                 </div>
                 <div class="input-group form-group5">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-people-group f"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea" name="famille" placeholder=" famille">
+                    <input th:field="*{famille}" type="text" class="form-control form-crea" name="famille" placeholder=" famille">
+                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('famille')}" th:errors="*{famille}"></p>
                 </div>
                 <div class="input-group form-group6">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-paw f"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea2" name="categorie" placeholder=" categorie">
+                    <input th:field="*{categorie}" type="text" class="form-control form-crea2" name="categorie" placeholder=" categorie">
+                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('categorie')}" th:errors="*{categorie}"></p>
                 </div>
                 <div class="input-group form-group7">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-map-location-dot f"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea" name="lieux" placeholder=" lieux">
+                    <input th:field="*{lieux}" type="text" class="form-control form-crea" name="lieux" placeholder=" lieux">
+                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('lieux')}" th:errors="*{lieux}"></p>
                 </div>
                 <div class="input-group form-group8">
                     <div class="input-group-prepend">
                         <span class="input-group-text ff"><i class="fa-solid fa-temperature-half f"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea2" name="statut" placeholder=" statut">
+                    <input th:field="*{statut}" type="text" class="form-control form-crea2" name="statut" placeholder=" statut">
+                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('statut')}" th:errors="*{statut}"></p>
                 </div>
                 <div class="input-group form-group9">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-pen f"></i></span>
                     </div>
-                    <input  type="text" class="form-control form-crea" name="description" placeholder=" description">
+                    <input th:field="*{description}"  type="text" class="form-control form-crea" name="description" placeholder=" description">
                 </div>
                 <div class="form-group">
                     <input type="submit" value="valider" class="btn btnFCrea">

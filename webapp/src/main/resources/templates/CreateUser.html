@@ -47,48 +47,55 @@
         <h2 class="titleCreaC">CREER UN UTILISATEUR</h2>
         
         <section class="card-form">
-            <form th:action="@{/CreateUser}" method="post">
+            <form th:action="@{/CreateUser}" th:object="${utilisateur}" method="post">
                 <div class="input-group form-group1">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-otter f"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea" name="firstname" placeholder=" firstname">
+                    <input  th:field="*{firstname}" type="text" class="form-control form-crea" name="firstname" placeholder=" firstname">
+                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></p>
                 </div>
                 <div class="input-group form-group2">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-weight-scale f"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea2" name="lastname" placeholder=" lastname">
+                    <input  th:field="*{lastname}" type="text" class="form-control form-crea2" name="lastname" placeholder=" lastname">
+                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></p>
                 </div>
                 <div class="input-group form-group3">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-ruler-vertical f"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea" name="username" placeholder=" username">
+                    <input  th:field="*{username}" type="text" class="form-control form-crea" name="username" placeholder=" username">
+                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
                 </div>
                 <div class="input-group form-group4">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-utensils"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea2" name="email" placeholder=" email">
+                    <input  th:field="*{email}" type="text" class="form-control form-crea2" name="email" placeholder=" email">
+                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
                 </div>
                 <div class="input-group form-group5">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-people-group f"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea" name="password" placeholder=" password">
+                    <input  th:field="*{password}"  type="text" class="form-control form-crea" name="password" placeholder=" password">
+                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
                 </div>
                 <div class="input-group form-group6">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-paw f"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea2" name="usertype" placeholder=" usertype">
+                    <input th:field="*{usertype}" type="text" class="form-control form-crea2" name="usertype" placeholder=" usertype">
+                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('usertype')}" th:errors="*{usertype}"></p>
                 </div>
                 <div class="input-group form-group7">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-map-location-dot f"></i></span>
                     </div>
-                    <input type="text" class="form-control form-crea" name="sirette" placeholder=" sirette">
+                    <input th:field="*{sirette}" type="text" class="form-control form-crea" name="sirette" placeholder=" sirette">
+                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('sirette')}" th:errors="*{sirette}"></p>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="valider" class="btn btnFCreaUser">

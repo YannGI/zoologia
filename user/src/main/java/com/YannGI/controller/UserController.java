@@ -2,10 +2,9 @@ package com.YannGI.controller;
 
 import com.YannGI.model.Utilisateur;
 import com.YannGI.service.UserService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class UserController
@@ -16,6 +15,10 @@ public class UserController
     {
         this.userService = userService;
     }
+
+    // #####################################################
+    // ################### SECURITY ########################
+    // #####################################################
 
     @PostMapping ("/findUserByEmail")
     public Utilisateur findUser (@RequestParam String email)
@@ -28,5 +31,27 @@ public class UserController
     {
         userService.saveUser(userSignUpForm);
         return userSignUpForm;
+    }
+
+    // #####################################################
+    // ############### CRUD utilisateur ####################
+    // #####################################################
+
+    @PostMapping("createPatient")
+    public Utilisateur createUser(@RequestBody Utilisateur utilisateur)
+    {
+        userService.createUser(utilisateur);
+        return utilisateur;
+    }
+
+    @GetMapping("getAll")
+    public List<Utilisateur> getAllUsers()
+    {
+        return userService.getAllUsers();
+    }
+
+    @DeleteMapping("deleteUser")
+    public void deleteUser(@RequestParam Long id){
+        userService.deletePatient(id);
     }
 }
