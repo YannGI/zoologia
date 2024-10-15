@@ -77,7 +77,7 @@ public class UserController
     @GetMapping("/listUser")
     public ModelAndView listUser(Model model) // vue
     {
-        model.addAttribute("utilisateurs", userFeignClient.getAllPatients().getBody());
+        model.addAttribute("utilisateurs", userFeignClient.getAllUsers().getBody());
         return new ModelAndView("DeleteUser");
     }
 

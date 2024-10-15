@@ -44,7 +44,7 @@ public class UserService
         return userRepository.findAll();
     }
 
-    public void deletePatient(Long id)
+    public void deleteUser(Long id)
     {
         userRepository.deleteById(Long.valueOf(id).intValue());
     }

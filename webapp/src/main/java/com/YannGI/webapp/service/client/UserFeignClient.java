@@ -28,7 +28,7 @@ public interface UserFeignClient
     public ResponseEntity<Utilisateur> createUser(Utilisateur utilisateur);
 
     @GetMapping(value = "/getAll",consumes = "application/json")
-    public ResponseEntity<List<Utilisateur>> getAllPatients();
+    public ResponseEntity<List<Utilisateur>> getAllUsers();
 
     @DeleteMapping(value = "/deleteUser",consumes = "application/json")
     public void deleteUser(@RequestParam Long id);

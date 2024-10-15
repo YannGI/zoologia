@@ -3,9 +3,9 @@ package com.YannGI.controller;
 import com.YannGI.model.Animal;
 import com.YannGI.model.Utilisateur;
 import com.YannGI.service.AnimalService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class AnimalController
@@ -27,5 +27,17 @@ public class AnimalController
     {
         animalService.createAnimal(animal);
         return animal;
+    }
+
+    @GetMapping("getAll")
+    public List<Animal> getAllUsers()
+    {
+        return animalService.getAllAnimals();
+    }
+
+    @DeleteMapping("deleteAnimal")
+    public void deleteAnimal(@RequestParam Long id)
+    {
+        animalService.deleteAnimal(id);
     }
 }

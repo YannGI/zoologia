@@ -37,23 +37,23 @@ public class AnimalController
     public String createAnimal(@ModelAttribute("animal") Animal animal)
     {
         animalFeignClient.createAnimal(animal);
-        return "redirect:/DeleteAnimal";
+        return "redirect:/DeleteCard";
     }
 
     // ################### DELETE ##########################
-   /* @GetMapping("/listUser")
-    public ModelAndView listUser(Model model) // vue
+    @GetMapping("/listAnimal")
+    public ModelAndView listAnimal(Model model) // vue
     {
-        model.addAttribute("utilisateurs", createAnimal().getAllPatients().getBody());
-        return new ModelAndView("DeleteUser");
+        model.addAttribute("animals", animalFeignClient.getAllAnimals().getBody());
+        return new ModelAndView("DeleteCard");
     }
 
     @GetMapping("/deleteUser/{id}") // crud
     public String deleteUser(@PathVariable("id")Long id)
     {
-        userFeignClient.deleteUser(id);
-        return "redirect:/listUser";
-    }*/
+        animalFeignClient.deleteAnimal(id);
+        return "redirect:/listAnimal";
+    }
 
     // ################### UPDATE ##########################
 }
