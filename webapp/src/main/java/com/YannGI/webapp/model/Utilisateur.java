@@ -2,7 +2,7 @@ package com.YannGI.webapp.model;
 
 public class Utilisateur
 {
-    private Integer iduser;
+    private Integer idUser;
     private String firstname;
     private String lastname;
     private String username;
@@ -15,9 +15,8 @@ public class Utilisateur
     public Utilisateur() {
     }
 
-    public Utilisateur(Integer iduser, String firstname, String lastname, String username, String email, String password, String usertype, String sirette)
-    {
-        this.iduser = iduser;
+    public Utilisateur(Integer idUser, String firstname, String lastname, String username, String email, String password, String usertype, String sirette) {
+        this.idUser = idUser;
         this.firstname = firstname;
         this.lastname = lastname;
         this.username = username;
@@ -27,12 +26,12 @@ public class Utilisateur
         this.sirette = sirette;
     }
 
-    public Integer getIduser() {
-        return iduser;
+    public Integer getIdUser() {
+        return idUser;
     }
 
-    public void setIduser(Integer iduser) {
-        this.iduser = iduser;
+    public void setIdUser(Integer idUser) {
+        this.idUser = idUser;
     }
 
     public String getFirstname() {

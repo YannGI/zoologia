@@ -1,12 +1,33 @@
-package com.YannGI.webapp.model;
+package com.YannGI.model;
+
+import jakarta.persistence.*;
 
 import java.util.List;
 
+@Entity
 public class Animal
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idAnimal;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "jointure_lieux_animaux",
+            joinColumns = @JoinColumn(name = "id_animal"),
+            inverseJoinColumns = @JoinColumn(name = "id_lieux")
+    )
+    private List<Lieux> ListLieux;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_statut")
     private Statut idStatut;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_categorie")
     private Categorie idCategorie;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_famille")
     private Famille idFamille;
     private String statFavoris;
     private String nom;
@@ -19,8 +40,9 @@ public class Animal
     public Animal() {
     }
 
-    public Animal(Integer idAnimal, Statut idStatut, Categorie idCategorie, Famille idFamille, String statFavoris, String nom, String taille, String regimAlim, String description, String poids, String ppimage) {
+    public Animal(Integer idAnimal, List<Lieux> listLieux, Statut idStatut, Categorie idCategorie, Famille idFamille, String statFavoris, String nom, String taille, String regimAlim, String description, String poids, String ppimage) {
         this.idAnimal = idAnimal;
+        ListLieux = listLieux;
         this.idStatut = idStatut;
         this.idCategorie = idCategorie;
         this.idFamille = idFamille;
@@ -39,6 +61,14 @@ public class Animal
 
     public void setIdAnimal(Integer idAnimal) {
         this.idAnimal = idAnimal;
+    }
+
+    public List<Lieux> getListLieux() {
+        return ListLieux;
+    }
+
+    public void setListLieux(List<Lieux> listLieux) {
+        ListLieux = listLieux;
     }
 
     public Statut getIdStatut() {
@@ -121,4 +151,3 @@ public class Animal
         this.ppimage = ppimage;
     }
 }
-

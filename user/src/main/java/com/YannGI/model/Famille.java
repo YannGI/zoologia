@@ -1,7 +1,15 @@
-package com.YannGI.webapp.model;
+package com.YannGI.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Famille
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idFamille;
     private String nomFamille;
 

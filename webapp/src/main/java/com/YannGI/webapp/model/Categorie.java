@@ -2,30 +2,35 @@ package com.YannGI.webapp.model;
 
 public class Categorie
 {
-    private Integer idcategorie;
-    private String nomcategorie;
+    private Integer idCategorie;
+    private String nomCategorie;
 
     public Categorie() {
     }
 
-    public Categorie(Integer idcategorie, String nomcategorie) {
-        this.idcategorie = idcategorie;
-        this.nomcategorie = nomcategorie;
+    public Categorie(Integer idCategorie, String nomCategorie)
+    {
+        this.idCategorie = idCategorie;
+        this.nomCategorie = nomCategorie;
     }
 
-    public Integer getIdcategorie() {
-        return idcategorie;
+    public Integer getIdCategorie()
+    {
+        return idCategorie;
     }
 
-    public void setIdcategorie(Integer idcategorie) {
-        this.idcategorie = idcategorie;
+    public void setIdCategorie(Integer idCategorie)
+    {
+        this.idCategorie = idCategorie;
     }
 
-    public String getNomcategorie() {
-        return nomcategorie;
+    public String getNomCategorie()
+    {
+        return nomCategorie;
     }
 
-    public void setNomcategorie(String nomcategorie) {
-        this.nomcategorie = nomcategorie;
+    public void setNomCategorie(String nomCategorie)
+    {
+        this.nomCategorie = nomCategorie;
     }
 }

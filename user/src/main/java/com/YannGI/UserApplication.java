@@ -6,9 +6,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 //@ComponentScans({@ComponentScan("com.YannGI.utilisateur.controller")})
 //@EnableJpaRepositories("com.YannGI.utilisateur.repository")
 //@EntityScan("com.YannGI.utilisateur.model")
+//@RefreshScope
 @EnableFeignClients
 @SpringBootApplication
-//@RefreshScope
 public class UserApplication {
 
 	public static void main(String[] args) {

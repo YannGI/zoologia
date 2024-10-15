@@ -37,7 +37,7 @@ public class UserController
     // ############### CRUD utilisateur ####################
     // #####################################################
 
-    @PostMapping("createPatient")
+    @PostMapping("createUser")
     public Utilisateur createUser(@RequestBody Utilisateur utilisateur)
     {
         userService.createUser(utilisateur);
@@ -51,7 +51,8 @@ public class UserController
     }
 
     @DeleteMapping("deleteUser")
-    public void deleteUser(@RequestParam Long id){
+    public void deleteUser(@RequestParam Long id)
+    {
         userService.deletePatient(id);
     }
 }

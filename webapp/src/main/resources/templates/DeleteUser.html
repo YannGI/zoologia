@@ -59,7 +59,7 @@
                 </thead>
                 <tbody>
                     <tr th:each="utilisateur : ${utilisateurs}">
-                        <td th:text="${utilisateur.iduser}"></td>
+                        <td th:text="${utilisateur.idUser}"></td>
                         <td th:text="${utilisateur.firstname}"></td>
                         <td th:text="${utilisateur.lastname}"></td>
                         <td th:text="${utilisateur.username}"></td>
@@ -68,7 +68,7 @@
                             <a th:href="@{/edit/{id}(id=${utilisateur.iduser})}">Modif</a>
                             <td>
                                 <!--<button class="deleteBTN"><a class="aDeleteBTN" th:href="@{|/ZOOLOGIAhome/${utilisateur.iduser}|}">Suppr</a></button>-->
-                                <button class="deleteBTN"><a class="aDeleteBTN"  th:href="@{/deleteUser/{id}(id=${utilisateur.iduser})}">Suppr</a></button>
+                                <button class="deleteBTN"><a class="aDeleteBTN"  th:href="@{/deleteUser/{id}(id=${utilisateur.idUser})}">Suppr</a></button>
                             </td>
                         </td>
                     </tr>

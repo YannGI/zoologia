@@ -17,7 +17,8 @@ public class UserController
     private final UserServiceImpl userServiceImpl;
     private final UserFeignClient userFeignClient;
 
-    public UserController(UserServiceImpl userServiceImpl, UserFeignClient userFeignClient) {
+    public UserController(UserServiceImpl userServiceImpl, UserFeignClient userFeignClient)
+    {
         this.userServiceImpl = userServiceImpl;
         this.userFeignClient = userFeignClient;
     }

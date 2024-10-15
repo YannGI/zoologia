@@ -7,7 +7,7 @@ public class Utilisateur
 {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer iduser;
+    private Integer idUser;
     private String firstname;
     private String lastname;
     private String username;
@@ -20,9 +20,8 @@ public class Utilisateur
     public Utilisateur() {
     }
 
-    public Utilisateur(Integer iduser, String firstname, String lastname, String username, String email, String password, String usertype, String sirette)
-    {
-        this.iduser = iduser;
+    public Utilisateur(Integer idUser, String firstname, String lastname, String username, String email, String password, String usertype, String sirette) {
+        this.idUser = idUser;
         this.firstname = firstname;
         this.lastname = lastname;
         this.username = username;
@@ -32,83 +31,67 @@ public class Utilisateur
         this.sirette = sirette;
     }
 
-    public Integer getIduser() {
-        return iduser;
+    public Integer getIdUser() {
+        return idUser;
     }
 
-    public void setIduser(Integer iduser)
-    {
-        this.iduser = iduser;
+    public void setIdUser(Integer idUser) {
+        this.idUser = idUser;
     }
 
-    public String getFirstname()
-    {
+    public String getFirstname() {
         return firstname;
     }
 
-    public void setFirstname(String firstname)
-    {
+    public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
 
-    public String getLastname()
-    {
+    public String getLastname() {
         return lastname;
     }
 
-    public void setLastname(String lastname)
-    {
+    public void setLastname(String lastname) {
         this.lastname = lastname;
     }
 
-    public String getUsername()
-    {
+    public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username)
-    {
+    public void setUsername(String username) {
         this.username = username;
     }
 
-    public String getEmail()
-    {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email)
-    {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public String getPassword()
-    {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password)
-    {
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public String getUsertype()
-    {
+    public String getUsertype() {
         return usertype;
     }
 
-    public void setUsertype(String usertype)
-    {
+    public void setUsertype(String usertype) {
         this.usertype = usertype;
     }
 
-    public String getSirette()
-    {
+    public String getSirette() {
         return sirette;
     }
 
-    public void setSirette(String sirette)
-    {
+    public void setSirette(String sirette) {
         this.sirette = sirette;
     }
-
 }
