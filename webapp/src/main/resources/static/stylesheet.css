@@ -11,7 +11,7 @@
 /* ############################################################ */
 
 .Header
-{ 
+{
   position: fixed;
   z-index: 40;
   width: 99%;
@@ -19,7 +19,7 @@
   top:0;
 }
 
-.card1 
+.card1
 {
   position: relative;
   background-color: rgb(0, 0, 0);
@@ -33,6 +33,19 @@
   color: rgba(179, 134, 0, 0.842);
   margin-left: auto;
   margin-right: auto;
+}
+
+.card1.closed .contain-navbar-buttons
+{
+  display:flex;
+}
+
+@media screen and (max-width : 884px )
+{
+  .card1.closed .contain-navbar-buttons
+  {
+    display:none;
+  }
 }
 
 .contain-navbar-buttons
@@ -50,7 +63,7 @@
   display: none;
 }
 
-.card1::before 
+.card1::before
 {
   content: "";
   position: absolute;
@@ -63,7 +76,7 @@
   border-radius: 10px;
 }
 
-.card1::after 
+.card1::after
 {
   content: "";
   position: absolute;
@@ -78,14 +91,14 @@
   transition: 1s;
 }
 
-.btn 
+.btn
 {
   margin: 0.58em 0.75em 0.5em 0.35em;
   padding: 0.40em 0.44em;
   font-family: "Courier New", Courier, monospace;
   border-radius: 10px 10px 10px 10px;
   font-size: 1em;
-  background: transparent;
+  background: black;
   box-shadow: transparent;
   border: solid 0.25em #ffae00;
   color: rgb(255, 255, 255);
@@ -93,11 +106,19 @@
 }
 
 .btn:hover,
-.btn:focus 
+.btn:focus
 {
   color: rgb(230, 230, 230);
-  background: transparent;
+  background: black;
   box-shadow:  0 0 8px #ffae00, 0 0 14px #ffdb0eb6;
+}
+
+.active
+{
+  color: rgb(230, 230, 230);
+  background: black;
+  box-shadow:  0 0 6px #ffffff, 0 0 12px #edededb6;
+  border: solid 0.25em #ffffff;
 }
 
 img
@@ -137,7 +158,7 @@ img
   color: #ffae00;
   font-size: 1em;
 }
-  
+
 input:focus
 {
   outline: 0 0 0 0  !important;
@@ -146,7 +167,7 @@ input:focus
 
 /*------------------------------------------------------------------------------------------------------*/
 
-.main-content 
+.main-content
 {
   /* background-image: url(IMG/FondLeopardReC.jpg); */
   background-size: cover;
@@ -155,7 +176,7 @@ input:focus
   min-height:100%;
 }
 
-.main-content-bigtitle 
+.main-content-bigtitle
 {
   text-align: center;
   color:#ffffff;
@@ -163,7 +184,7 @@ input:focus
   text-shadow:  0 0 5px #ffa200dc, 0 0 6px #ffa70e23;
 }
 
-.main-content-bigtitle-h1 
+.main-content-bigtitle-h1
 {
   /* padding: 0.15em 0em 6.75em 0em; */
   padding: 0.15em 0em 0.45em 0em;
@@ -176,29 +197,30 @@ input:focus
   animation: bigtitle 1.65s infinite ease-in-out forwards;
 }
 
-@keyframes bigtitle 
+@keyframes bigtitle
 {
-  0% 
+  0%
   {
     opacity: 2;
   }
 
-  50% 
+  50%
   {
     opacity: 1;
     text-shadow: rgba(255, 255, 255, 0.089) 0.2em 0.1em 0.1em;
   }
 
-  100% 
+  100%
   {
     opacity: 2;
   }
 }
 
 
-.main-title2 
+.main-title2
 {
-  background-color: rgb(12, 12, 12);
+  /* background-color: rgb(12, 12, 12); */
+  background-image: url(IMG/leopardSkin.jpeg);
   border-radius: 50px 50px 50px 50px;
   text-align: center;
   color:#ffffff;
@@ -218,18 +240,18 @@ input:focus
 
 /* @keyframes bigtitle2
 {
-  0% 
+  0%
   {
     opacity: 2;
   }
 
-  50% 
+  50%
   {
     opacity: 1;
     box-shadow:  0 0 12px #000000, 0 0 15px #0000003b;
   }
 
-  100% 
+  100%
   {
     opacity: 2;
   }
@@ -248,7 +270,8 @@ input:focus
 
 .main-box-card
 {
-  background-color: rgb(12, 12, 12);
+  /* background-color: rgb(12, 12, 12); */
+  background-image: url(IMG/leopardSkin.jpeg);
   width: 24em;
   height: 41.5em;
   margin-left: auto;
@@ -266,7 +289,7 @@ input:focus
   flex-direction: column;
 
   font-family: "Courier New", Courier, monospace;
-  
+
 }
 
 .main-box-card::before
@@ -284,7 +307,7 @@ input:focus
   transition: 1s;
 }
 
-.main-box-card:hover::before 
+.main-box-card:hover::before
 {
   /* animation: cardafter 1s infinite forwards; */
   animation: shakeBack 1.75s infinite;
@@ -293,7 +316,7 @@ input:focus
 
 @keyframes shakeBack
 {
-  
+
   0% { transform: translateX(0); }
   10% { transform: translateX(-2.5px); }
   20% { transform: translateX(2.5px); }
@@ -469,13 +492,13 @@ input:focus
   border-radius: 8px;
   margin-bottom: 0.2em;
   margin-right: auto;
-  font-family: "Courier New", Courier, monospace; 
+  font-family: "Courier New", Courier, monospace;
   padding: 0.25em;
   font-size: 1.015em;
 }
 
 .main-box-card-flexMore-enSavoirPlus:hover,
-.main-box-card-flexMore-enSavoirPlus:focus 
+.main-box-card-flexMore-enSavoirPlus:focus
 {
   color: rgb(230, 230, 230);
   background: transparent;
@@ -484,7 +507,7 @@ input:focus
 }
 
 .main-box-card-flexMore-addMyList:hover,
-.main-box-card-flexMore-addMyList:focus 
+.main-box-card-flexMore-addMyList:focus
 {
   color: rgb(230, 230, 230);
   background:transparent;
@@ -546,7 +569,8 @@ li
 .Footer-contain-list
 {
   padding: 0.25em 1em 0.25em 1em;
-  background-color: #0000003e;
+  /* background-color: #0000003e; */
+  background-image: url(IMG/leopardSkin.jpeg);
   border-radius: 8px;
   box-shadow:  0 0 10px #d7d7d7, 0 0 15px #ffffffb6;
 }
@@ -558,7 +582,7 @@ li
   margin-bottom: 1em;
 }
 
-.wheel-and-hamster 
+.wheel-and-hamster
 {
   --dur: 1s;
   position: relative;
@@ -570,13 +594,13 @@ li
 .wheel,
 .hamster,
 .hamster div,
-.spoke 
+.spoke
 {
   position: absolute;
 }
 
 
-.hamster 
+.hamster
 {
   animation: hamster var(--dur) ease-in-out infinite;
   top: 50%;
@@ -590,7 +614,7 @@ li
   margin-top: -3em;
 }
 
-.hamster__head 
+.hamster__head
 {
   animation: hamsterHead var(--dur) ease-in-out infinite;
   background: hsl(30,90%,55%);
@@ -604,7 +628,7 @@ li
   transform-origin: 100% 50%;
 }
 
-.hamster__ear 
+.hamster__ear
 {
   animation: hamsterEar var(--dur) ease-in-out infinite;
   background: hsl(0,90%,85%);
@@ -617,7 +641,7 @@ li
   transform-origin: 50% 75%;
 }
 
-.hamster__eye 
+.hamster__eye
 {
   animation: hamsterEye var(--dur) linear infinite;
   background-color: hsl(0,0%,0%);
@@ -628,7 +652,7 @@ li
   height: 0.5em;
 }
 
-.hamster__nose 
+.hamster__nose
 {
   background: hsl(0,90%,75%);
   border-radius: 35% 65% 85% 15% / 70% 50% 50% 30%;
@@ -638,7 +662,7 @@ li
   height: 0.25em;
 }
 
-.hamster__body 
+.hamster__body
 {
   animation: hamsterBody var(--dur) ease-in-out infinite;
   background: hsl(30,90%,90%);
@@ -654,7 +678,7 @@ li
 }
 
 .hamster__limb--fr,
-.hamster__limb--fl 
+.hamster__limb--fl
 {
   clip-path: polygon(0 0,100% 0,70% 80%,60% 100%,0% 100%,40% 80%);
   top: 2em;
@@ -664,14 +688,14 @@ li
   transform-origin: 50% 0;
 }
 
-.hamster__limb--fr 
+.hamster__limb--fr
 {
   animation: hamsterFRLimb var(--dur) linear infinite;
   background: linear-gradient(hsl(30,90%,80%) 80%,hsl(0,90%,75%) 80%);
   transform: rotate(15deg) translateZ(-1px);
 }
 
-.hamster__limb--fl 
+.hamster__limb--fl
 {
   animation: hamsterFLLimb var(--dur) linear infinite;
   background: linear-gradient(hsl(30,90%,90%) 80%,hsl(0,90%,85%) 80%);
@@ -679,7 +703,7 @@ li
 }
 
 .hamster__limb--br,
-.hamster__limb--bl 
+.hamster__limb--bl
 {
   border-radius: 0.75em 0.75em 0 0;
   clip-path: polygon(0 0,100% 0,100% 30%,70% 90%,70% 100%,30% 100%,40% 90%,0% 30%);
@@ -690,21 +714,21 @@ li
   transform-origin: 50% 30%;
 }
 
-.hamster__limb--br 
+.hamster__limb--br
 {
   animation: hamsterBRLimb var(--dur) linear infinite;
   background: linear-gradient(hsl(30,90%,80%) 90%,hsl(0,90%,75%) 90%);
   transform: rotate(-25deg) translateZ(-1px);
 }
 
-.hamster__limb--bl 
+.hamster__limb--bl
 {
   animation: hamsterBLLimb var(--dur) linear infinite;
   background: linear-gradient(hsl(30,90%,90%) 90%,hsl(0,90%,85%) 90%);
   transform: rotate(-25deg);
 }
 
-.hamster__tail 
+.hamster__tail
 {
   animation: hamsterTail var(--dur) linear infinite;
   background: hsl(0,90%,85%);
@@ -826,7 +850,7 @@ li
 /* ##############  Favoris Liste   ############################ */
 /* ############################################################ */
 
-.main-titleFav-bigtitle 
+.main-titleFav-bigtitle
 {
   text-align: center;
   color:#ffffff;
@@ -835,7 +859,7 @@ li
 
 }
 
-.main-titleFav-bigtitle-h1 
+.main-titleFav-bigtitle-h1
 {
   padding: 0.15em 0em 0.35em 0em;
   width: 100%;
@@ -847,20 +871,20 @@ li
   animation: bigtitle 1.65s infinite ease-in-out forwards;
 }
 
-@keyframes bigtitle 
+@keyframes bigtitle
 {
-  0% 
+  0%
   {
     opacity: 2;
   }
 
-  50% 
+  50%
   {
     opacity: 1;
     text-shadow: rgba(255, 255, 255, 0.089) 0.2em 0.1em 0.1em;
   }
 
-  100% 
+  100%
   {
     opacity: 2;
   }
@@ -872,7 +896,7 @@ li
 @media screen AND (max-width:1210px)
 {
   .Header
-  { 
+  {
     width: 98.6%;
   }
 
@@ -881,7 +905,7 @@ li
     display: none;
   }
 
-  .btn 
+  .btn
   {
     margin: 0.95em 0.45em 1em 0.35em;
     padding: 0.40em 0.40em;
@@ -889,10 +913,10 @@ li
     border-radius: 10px 10px 10px 10px;
     font-size: 1em;
     background: black;
-    box-shadow: transparent;
-    border: solid 0.25em #ffae00;
-    color: rgb(255, 255, 255);
-    transition: 0.4s ease;
+    /* box-shadow: transparent; */
+    /* border: solid 0.25em #ffae00; */
+    /* color: rgb(255, 255, 255);
+    transition: 0.4s ease; */
   }
 
   .form-control
@@ -916,7 +940,7 @@ li
     padding-left: 0.10em;
   }
 
-  .main-content-bigtitle-h1 
+  .main-content-bigtitle-h1
   {
     padding: 1.5em 0em 0em 0em;
     width: 100%;
@@ -928,7 +952,7 @@ li
     animation: bigtitle 1.65s infinite ease-in-out forwards;
   }
 
-  .main-title2 
+  .main-title2
   {
     background-color: rgb(13, 13, 13);
     border-radius: 50px 50px 50px 50px;
@@ -966,13 +990,26 @@ li
 @media screen AND (max-width:884px)
 {
   .Header
-  { 
+  {
     width: 97%;
   }
 
   .contain-navbar-buttons
   {
-    display: none;
+    margin-top: -16em;
+    z-index: -20;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* padding-top: 10em; */
+    padding-top: 4em;
+    padding-bottom: 1em;
+    width: 100%;
+    height:  100vh;
+    background-image: url(IMG/leopardSkin.jpeg);
+    border-radius: 50em;
+    box-shadow:  0 0 12px #d8d8d8, 0 0 15px #959595b6;
   }
 
   .menuburger
@@ -988,7 +1025,7 @@ li
     background-color: #000000;
   }
 
-  .main-content-bigtitle-h1 
+  .main-content-bigtitle-h1
   {
     font-size: 3.2em;
     margin-bottom: 1em;
@@ -996,7 +1033,7 @@ li
     animation: bigtitle 1.65s infinite ease-in-out forwards;
   }
 
-  .main-title2 
+  .main-title2
   {
     padding: 0.5em;
     font-size: 0.65em;
@@ -1014,7 +1051,7 @@ li
     margin-bottom: 1em;
   }
 
-  .main-titleFav-bigtitle-h1 
+  .main-titleFav-bigtitle-h1
   {
     font-size: 3.2em;
     margin-top: 2.5em;
@@ -1031,7 +1068,7 @@ li
 /* #################   card descr   ########################### */
 /* ############################################################ */
 
-.single .main-content 
+.single .main-content
 {
   background:none;
   display: flex;
@@ -1213,7 +1250,7 @@ li
 }
 
 .main-content-cardDescription-btnFlex-btnAddMyList:hover,
-.main-content-cardDescription-btnFlex-btnAddMyList:focus 
+.main-content-cardDescription-btnFlex-btnAddMyList:focus
 {
   color: rgb(230, 230, 230);
   background: transparent;
@@ -1222,7 +1259,7 @@ li
 }
 
 .main-content-cardDescription-btnFlex-btnMap:hover,
-.main-content-cardDescription-btnFlex-btnMap:focus 
+.main-content-cardDescription-btnFlex-btnMap:focus
 {
   color: rgb(230, 230, 230);
   background:transparent;
@@ -1230,17 +1267,17 @@ li
   box-shadow:  0 0 8px #ffae00, 0 0 10px #ffbf0ec0;
 }
 
-@keyframes rotationIMG 
+@keyframes rotationIMG
 {
-  0% 
+  0%
   {
     transform: rotate(-25deg);
   }
-  50% 
+  50%
   {
       transform: rotate(25deg);
   }
-  100% 
+  100%
   {
       transform: rotate(-25deg);
   }
@@ -1366,7 +1403,7 @@ li
   align-items:center ;
   justify-content: space-between;
   flex-direction: row;
-} 
+}
 
 .mainModifAppmenu-display-column-card
 {
@@ -1387,7 +1424,7 @@ li
 
   background-image: url(IMG/tablefondModif.jpg);
   background-repeat: no-repeat;
-  
+
   font-family: "Courier New", Courier, monospace;
 
   box-shadow:  0 0 10px #ffae00, 0 0 15px #ffd000;
@@ -1403,25 +1440,25 @@ li
   box-shadow:  0 0 10px #ff9100, 0 0 15px #ffc400;
 }
 
-@keyframes slide 
+@keyframes slide
 {
-  0% 
+  0%
   {
     transform: translateX(0px);
   }
-  25% 
+  25%
   {
     transform: translateX(5px);
   }
-  50% 
+  50%
   {
     transform: translateX(-5px);
   }
-  75% 
+  75%
   {
     transform: translateX(5px);
   }
-  100% 
+  100%
   {
     transform: translateX(0px);
   }
@@ -1450,20 +1487,20 @@ li
 
 @keyframes lights
 {
-  0% 
+  0%
   {
     box-shadow:  0 0 10px #ffae00, 0 0 15px #ffbb00;
     background: rgba(0, 0, 0, 0.680);
     color: rgb(255, 255, 255);
   }
 
-  50% 
+  50%
   {
     box-shadow:  0 0 5px #0000002c, 0 0 15px #00000000;
     background: rgba(0, 0, 0, 0.465);
     color: rgb(235, 235, 235);
   }
-  100% 
+  100%
   {
     box-shadow:  0 0 10px #ffae00, 0 0 15px #ffbb00;
     background: rgba(0, 0, 0, 0.680);
@@ -1473,7 +1510,7 @@ li
 
 
 .mainModifAppmenu-display-column-card-button:hover,
-.mainModifAppmenu-display-column-card-button:focus 
+.mainModifAppmenu-display-column-card-button:focus
 {
   color: rgb(255, 255, 255);
   background: rgba(0, 0, 0, 0.525);
@@ -1484,16 +1521,16 @@ li
 
 @keyframes lights2
 {
-  0% 
+  0%
   {
     box-shadow:  0 0 10px #ffae00, 0 0 15px #ff970e;
   }
 
-  50% 
+  50%
   {
     box-shadow:  0 0 10px #ffae00, 0 0 15px #ff970e;
   }
-  100% 
+  100%
   {
     box-shadow:  0 0 10px #ffae00, 0 0 15px #ff970e;
   }
@@ -1618,23 +1655,23 @@ li
 
 @keyframes slideCreateCard
 {
-  0% 
+  0%
   {
     transform: translateX(0px);
   }
-  25% 
+  25%
   {
     transform: translateX(1.25px);
   }
-  50% 
+  50%
   {
     transform: translateX(-1.25px);
   }
-  75% 
+  75%
   {
     transform: translateX(1.25px);
   }
-  100% 
+  100%
   {
     transform: translateX(0px);
   }
@@ -1642,23 +1679,23 @@ li
 
 @keyframes slideCreateCard2
 {
-  0% 
+  0%
   {
     transform: translateX(0px);
   }
-  25% 
+  25%
   {
     transform: translateX(-1.25px);
   }
-  50% 
+  50%
   {
     transform: translateX(1.25px);
   }
-  75% 
+  75%
   {
     transform: translateX(-1.25px);
   }
-  100% 
+  100%
   {
     transform: translateX(0px);
   }
@@ -1679,7 +1716,7 @@ li
   background-color: #000000;
   /* clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); */
   /* box-shadow: inset 0 2px 60px 15px rgba(0, 0, 0, 0.815); */
-} 
+}
 
 @keyframes shakeIMGCreaCard
 {
@@ -1708,7 +1745,7 @@ li
   align-items: center;
   justify-content: center;
 
-  border: 1px solid rgb(0, 0, 0); 
+  border: 1px solid rgb(0, 0, 0);
 }
 
 th
@@ -1758,7 +1795,7 @@ th
 /* ############################################################" */
 /* ##################  TeaserZoologia  ########################" */
 /* ############################################################" */
-/* 
+/*
 .Teaser-display
 {
   display: flex;
