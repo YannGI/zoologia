@@ -59,13 +59,13 @@
 
         <section class="main-box">
 
-            <div class="main-box-card">
-                <img class="main-box-card-image" src="IMG/tigrecard.jpg" alt="">
-                <h2 class="main-box-card-titleName">panthère noire</h2>
-                <h3 class="main-box-card-etiquetteCard1">en danger</h3>
+            <div class="main-box-card" th:each="animal : ${animals}">
+                <img class="main-box-card-image" th:src="@{${animal.ppimage}}"  alt=""> <!-- src="IMG/tigrecard.jpg" -->
+                <h2 class="main-box-card-titleName" th:text="${animal.nom}">panthère noire</h2>
+                <h3 class="main-box-card-etiquetteCard1" th:text="${animal.statut}">en danger</h3>
                 <div class="main-box-card-divFam">
-                    <h3 class="main-box-card-divFam-famille">Vertébré <i class="fa-solid fa-people-group"></i></h3>
-                    <h3 class="main-box-card-divFam-categorie">félin <i class="fa-solid fa-paw"></i></h3>
+                    <h3 class="main-box-card-divFam-famille" th:text="${animal.famille}">Vertébré <i class="fa-solid fa-people-group"></i></h3>
+                    <h3 class="main-box-card-divFam-categorie" th:text="${animal.categorie}">félin <i class="fa-solid fa-paw"></i></h3>
                 </div>
                 <!-- <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> -->
                 <div class="main-box-card-flexMore">
