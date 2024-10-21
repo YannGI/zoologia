@@ -23,7 +23,7 @@
 {
   position: relative;
   background-color: rgb(0, 0, 0);
-  background-image: url(IMG/FondTigreNavB1.jpg);
+  background-image: url('images/FondTigreNavB1.jpg');
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
@@ -220,7 +220,7 @@ input:focus
 .main-title2
 {
   /* background-color: rgb(12, 12, 12); */
-  background-image: url(IMG/leopardSkin.jpeg);
+  background-image: url('images/leopardSkin.jpeg');
   border-radius: 50px 50px 50px 50px;
   text-align: center;
   color:#ffffff;
@@ -271,7 +271,7 @@ input:focus
 .main-box-card
 {
   /* background-color: rgb(12, 12, 12); */
-  background-image: url(IMG/leopardSkin.jpeg);
+  background-image: url('images/leopardSkin.jpeg');
   width: 24em;
   height: 41.5em;
   margin-left: auto;
@@ -532,7 +532,7 @@ input:focus
 .Footer-contain
 {
   margin-top: 6em;
-  background-image: url(IMG/footertiger.jpg);
+  background-image: url('images/footertiger.jpg');
   background-repeat: no-repeat;
   width: 100%;
   height: 17.5em;
@@ -570,7 +570,7 @@ li
 {
   padding: 0.25em 1em 0.25em 1em;
   /* background-color: #0000003e; */
-  background-image: url(IMG/leopardSkin.jpeg);
+  background-image: url('images/leopardSkin.jpeg');
   border-radius: 8px;
   box-shadow:  0 0 10px #d7d7d7, 0 0 15px #ffffffb6;
 }
@@ -972,7 +972,7 @@ li
   .Footer-contain
   {
     margin-top: 4.5em;
-    background-image: url(IMG/footertiger.jpg);
+    background-image: url('images/footertiger.jpg');
     background-repeat: no-repeat;
     width: 100%;
     height: 18.5em;
@@ -1007,7 +1007,7 @@ li
     padding-bottom: 1em;
     width: 100%;
     height:  100vh;
-    background-image: url(IMG/leopardSkin.jpeg);
+    background-image: url('images/leopardSkin.jpeg');
     border-radius: 50em;
     box-shadow:  0 0 12px #d8d8d8, 0 0 15px #959595b6;
   }
@@ -1292,7 +1292,7 @@ li
 
 .body-backgroundCompte
 {
-  background-image: url(IMG/fondSafariCompte.jpg);
+  background-image: url('images/fondSafariCompte.jpg');
 }
 
 .main-content-cardDescriptionCompte
@@ -1422,7 +1422,7 @@ li
   box-shadow: 2px 3px 22px;
   color: rgb(255, 196, 0);
 
-  background-image: url(IMG/tablefondModif.jpg);
+  background-image: url('images/tablefondModif.jpg');
   background-repeat: no-repeat;
 
   font-family: "Courier New", Courier, monospace;
@@ -1571,7 +1571,7 @@ li
   background-color: rgba(185, 183, 177, 0.171);
   /* box-shadow:  0 0 3.5px #ffae00, 0 0 5.5px #fcc100; */
   /* margin: 0.2em; */
-  background-image: url(IMG/tigerFondCrea.jpg);
+  background-image: url('images/tigerFondCrea.jpg');
   border: solid 0.25em #ffae00;
 }
 
@@ -1580,7 +1580,7 @@ li
   /* background-color: rgba(185, 183, 177, 0.171); */
   /* box-shadow:  0 0 3.5px #ffae00, 0 0 5.5px #fcc100; */
   /* margin: 0.2em; */
-  background-image: url(IMG/tigerFondCreaV2.jpg);
+  background-image: url('images/tigerFondCreaV2.jpg');
   border: solid 0.25em #ffae00;
 }
 
