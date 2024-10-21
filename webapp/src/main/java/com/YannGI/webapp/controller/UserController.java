@@ -1,6 +1,7 @@
 package com.YannGI.webapp.controller;
 
 import com.YannGI.webapp.model.Utilisateur;
+import com.YannGI.webapp.service.CustomUserDetailsService;
 import com.YannGI.webapp.service.UserServiceImpl;
 import com.YannGI.webapp.service.client.UserFeignClient;
 import org.springframework.stereotype.Controller;
@@ -16,25 +17,21 @@ public class UserController
 {
     private final UserServiceImpl userServiceImpl;
     private final UserFeignClient userFeignClient;
+    private final CustomUserDetailsService userDetailsService;
 
-    public UserController(UserServiceImpl userServiceImpl, UserFeignClient userFeignClient)
+    public UserController(UserServiceImpl userServiceImpl, UserFeignClient userFeignClient, CustomUserDetailsService userDetailsService)
     {
         this.userServiceImpl = userServiceImpl;
         this.userFeignClient = userFeignClient;
+        this.userDetailsService = userDetailsService;
     }
-
 
     // #####################################################
     // ################### SECURITY ########################
     // #####################################################
 
-    @GetMapping("/")
-    public ModelAndView home(Model model)
-    {
-        return new ModelAndView("redirect:/HomeZoologia");
-    }
 
-    @GetMapping("/HomeZoologia")
+    @GetMapping("/HomeZoologia") // page home
     public ModelAndView home()
     {
         return new ModelAndView("HomeZoologia");
@@ -50,7 +47,7 @@ public class UserController
     public ModelAndView userSignUp(@ModelAttribute("userSignUpForm") Utilisateur userSignUpForm)
     {
         userServiceImpl.registration(userSignUpForm);
-        return new ModelAndView("signin");
+        return new ModelAndView("login");
     }
 
 

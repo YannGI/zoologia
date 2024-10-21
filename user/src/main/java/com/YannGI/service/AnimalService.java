@@ -21,11 +21,19 @@ public class AnimalService
     // ################### CRUD animal #####################
     // #####################################################
 
+    // ################### HOME GET #########################
+    public List<Animal> findAllAnimals()
+    {
+        return animalRepository.findAll();
+    }
+
+    // ################### CREATE ##########################
     public Animal createAnimal(Animal animal)
     {
         return animalRepository.save(animal);
     }
 
+    // ################### DELETE ##########################
     public List<Animal> getAllAnimals()
     {
         return animalRepository.findAll();
@@ -35,4 +43,6 @@ public class AnimalService
     {
         animalRepository.deleteById(Long.valueOf(id).intValue());
     }
+
+    // ################### UPDATE ##########################
 }

@@ -18,12 +18,20 @@ public interface AnimalFeignClient
     // ################### CRUD animal #####################
     // #####################################################
 
+    // #################### GET HOME #######################
+    @GetMapping(value = "/findAllAnimals",consumes = "application/json")
+    public List<Animal> findAllAnimals();
+
+    // #################### CREATE #########################
     @PostMapping(value = "/createAnimal", consumes = "application/json")
     public ResponseEntity<Animal> createAnimal(Animal animal);
 
-    @GetMapping(value = "/getAll",consumes = "application/json")
+    // #################### DELETE #########################
+    @GetMapping(value = "/getAllAnimals",consumes = "application/json")
     public ResponseEntity<List<Animal>> getAllAnimals();
 
     @DeleteMapping(value = "/deleteAnimal",consumes = "application/json")
     public void deleteAnimal(@RequestParam Long id);
+
+    // #################### UPDATE #########################
 }

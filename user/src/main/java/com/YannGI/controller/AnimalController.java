@@ -1,4 +1,4 @@
-package com.YannGI.controller;
+package com.YannGI.user.controller;
 
 import com.YannGI.model.Animal;
 import com.YannGI.model.Utilisateur;
@@ -22,6 +22,14 @@ public class AnimalController
     // ################### CRUD animal #####################
     // #####################################################
 
+    // ################### HOME GET #########################
+    @GetMapping("findAllAnimals")
+    public List<Animal> findAllAnimals()
+    {
+        return animalService.findAllAnimals();
+    }
+
+    // ################### CREATE ##########################
     @PostMapping("createAnimal")
     public Animal createAnimal(@RequestBody Animal animal)
     {
@@ -29,8 +37,9 @@ public class AnimalController
         return animal;
     }
 
-    @GetMapping("getAll")
-    public List<Animal> getAllUsers()
+    // ################### DELETE ##########################
+    @GetMapping("getAllAnimals")
+    public List<Animal> getAllAnimals()
     {
         return animalService.getAllAnimals();
     }
@@ -40,4 +49,6 @@ public class AnimalController
     {
         animalService.deleteAnimal(id);
     }
+
+    // ################### UPDATE ##########################
 }

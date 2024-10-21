@@ -3,7 +3,6 @@ package com.YannGI.controller;
 import com.YannGI.model.Utilisateur;
 import com.YannGI.service.UserService;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -21,7 +20,7 @@ public class UserController
     // #####################################################
 
     @PostMapping ("/findUserByEmail")
-    public Utilisateur findUser (@RequestParam String email)
+    public Utilisateur findUserByEmail (@RequestParam String email)
     {
         return userService.findUser(email);
     }

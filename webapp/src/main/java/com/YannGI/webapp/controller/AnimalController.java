@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 public class AnimalController
 {
@@ -25,9 +27,18 @@ public class AnimalController
     // ################### CRUD animal #####################
     // #####################################################
 
+    // ################### HOME GET #########################
+    @GetMapping("/animals")
+    public String getAnimals(Model model)
+    {
+        List<Animal> animals = animalFeignClient.findAllAnimals();
+        model.addAttribute("animals", animals);
+        return "animals";
+    }
+
     // ################### CREATE ##########################
     @GetMapping("/createAnimal")  // vue
-    public ModelAndView addUser(Model model)
+    public ModelAndView addAnimal(Model model)
     {
         model.addAttribute("animal", new Animal());
         return new ModelAndView("CreateAnimal");
@@ -48,8 +59,8 @@ public class AnimalController
         return new ModelAndView("DeleteCard");
     }
 
-    @GetMapping("/deleteUser/{id}") // crud
-    public String deleteUser(@PathVariable("id")Long id)
+    @GetMapping("/deleteAnimal/{id}") // crud
+    public String deleteAnimal(@PathVariable("id")Long id)
     {
         animalFeignClient.deleteAnimal(id);
         return "redirect:/listAnimal";
