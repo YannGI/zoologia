@@ -21,7 +21,7 @@
     <div class="fix-me">
         <div class="card1 closed">
             <div class="contain-navbar-image">
-                <img src="IMG/ZOOLOGIA.png">
+                <img th:src="@{images/ZOOLOGIA.png}">
             </div>
             <div class="contain-navbar-searchbar">
                 <div class="input-group form-group">
@@ -33,10 +33,10 @@
             </div>
 
             <div class="contain-navbar-buttons">
-                <button class="btn"><i class="fa-solid fa-house"></i> ACCUEIL</button>
-                <button class="btn active"><i class="fa-solid fa-heart-circle-check"></i> FAVORIS</button>
-                <button class="btn"> <i class="fa-solid fa-user"></i> COMPTE</button>
-                <button class="btn"><i class="fa-solid fa-display"></i></i> L'APPLI</button>
+                <button class="btn"><i class="fa-solid fa-house"></i> <a th:href="@{/HomeZoologia}"> ACCUEIL</a> </button>
+                <button class="btn active"><i class="fa-solid fa-heart-circle-check"></i> <a th:href="@{/Favoris}"> FAVORIS</a> </button>
+                <button class="btn"> <i class="fa-solid fa-user"></i> <a th:href="@{/DetailCompte}"> COMPTE</a> </button>
+                <button class="btn"><i class="fa-solid fa-display"></i><a th:href="@{/ModifAppMenu}"> L'APPLI</a> </button>
             </div>
             <button class="btn menuburger"><i class="fa-solid fa-bars"></i></button>
         </div>

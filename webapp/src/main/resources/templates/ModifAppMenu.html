@@ -17,60 +17,58 @@
 </head>
 
 <body class="body">
-
-<header class="Header">
-    <div class="fix-me">
-        <div class="card1 closed">
-            <div class="contain-navbar-image">
-                <img src="IMG/ZOOLOGIA.png">
-            </div>
-            <div class="contain-navbar-searchbar">
-                <div class="input-group form-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></i></span>
+    <header class="Header">
+        <div class="fix-me">
+            <div class="card1 closed">
+                <div class="contain-navbar-image">
+                    <img th:src="@{images/ZOOLOGIA.png}">
+                </div>
+                <div class="contain-navbar-searchbar">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></i></span>
+                        </div>
+                        <input  type="search" class="form-control" name="search" placeholder=" recherche">
                     </div>
-                    <input  type="search" class="form-control" name="search" placeholder=" recherche">
+                </div>
+
+                <div class="contain-navbar-buttons">
+                    <button class="btn"><i class="fa-solid fa-house"></i> <a th:href="@{/HomeZoologia}"> ACCUEIL</a> </button>
+                    <button class="btn"><i class="fa-solid fa-heart-circle-check"></i> <a th:href="@{/Favoris}"> FAVORIS</a> </button>
+                    <button class="btn"> <i class="fa-solid fa-user"></i> <a th:href="@{/DetailCompte}"> COMPTE</a> </button>
+                    <button class="btn active"><i class="fa-solid fa-display"></i><a th:href="@{/ModifAppMenu}"> L'APPLI</a> </button>
+                </div>
+                <button class="btn menuburger"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="mainModifAppmenu">
+        <section class="mainModifAppmenu-display">
+
+            <div class="mainModifAppmenu-display-column">
+                <div class="mainModifAppmenu-display-column-card">
+                    <h1 class="mainModifAppmenu-display-column-card-title">CREER ANIMAL</h1>
+                    <button class="mainModifAppmenu-display-column-card-button"><a th:href="@{/CreateCard}"><i class="fa-regular fa-id-card"></i></a></button>
+                </div>
+                <div class="mainModifAppmenu-display-column-card">
+                    <h1 class="mainModifAppmenu-display-column-card-title">MODIF/SUPPR ANIMAL</h1>
+                    <button class="mainModifAppmenu-display-column-card-button"><a th:href="@{/DeleteCard}"><i class="fa-solid fa-trash"></i></a></button>
                 </div>
             </div>
 
-            <div class="contain-navbar-buttons">
-                <button class="btn"><i class="fa-solid fa-house"></i> ACCUEIL</button>
-                <button class="btn"><i class="fa-solid fa-heart-circle-check"></i> FAVORIS</button>
-                <button class="btn"> <i class="fa-solid fa-user"></i> COMPTE</button>
-                <button class="btn active"><i class="fa-solid fa-display"></i></i> L'APPLI</button>
+            <div class="mainModifAppmenu-display-column">
+                <div class="mainModifAppmenu-display-column-card">
+                    <h1 class="mainModifAppmenu-display-column-card-title">CREER _USER_</h1>
+                    <button class="mainModifAppmenu-display-column-card-button"><a th:href="@{/CreateUser}"><i class="fa-regular fa-id-card"></i></a></button>
+                </div>
+                <div class="mainModifAppmenu-display-column-card">
+                    <h1 class="mainModifAppmenu-display-column-card-title">MODIF/SUPPR _USER_</h1>
+                    <button class="mainModifAppmenu-display-column-card-button"><a th:href="@{/listUser}"><i class="fa-solid fa-trash"></i></a></button>
+                </div>
             </div>
-            <button class="btn menuburger"><i class="fa-solid fa-bars"></i></button>
-        </div>
-    </div>
-</header>
 
-<main class="mainModifAppmenu">
-
-    <section class="mainModifAppmenu-display">
-
-        <div class="mainModifAppmenu-display-column">
-            <div class="mainModifAppmenu-display-column-card">
-                <h1 class="mainModifAppmenu-display-column-card-title">CREER ANIMAL</h1>
-                <button class="mainModifAppmenu-display-column-card-button"><i class="fa-regular fa-id-card"></i></button>
-            </div>
-            <div class="mainModifAppmenu-display-column-card">
-                <h1 class="mainModifAppmenu-display-column-card-title">MODIF/SUPPR ANIMAL</h1>
-                <button class="mainModifAppmenu-display-column-card-button"><i class="fa-solid fa-trash"></i></button>
-            </div>
-        </div>
-
-        <div class="mainModifAppmenu-display-column">
-            <div class="mainModifAppmenu-display-column-card">
-                <h1 class="mainModifAppmenu-display-column-card-title">CREER _USER_</h1>
-                <button class="mainModifAppmenu-display-column-card-button"><i class="fa-regular fa-id-card"></i></button>
-            </div>
-            <div class="mainModifAppmenu-display-column-card">
-                <h1 class="mainModifAppmenu-display-column-card-title">MODIF/SUPPR _USER_</h1>
-                <button class="mainModifAppmenu-display-column-card-button"><i class="fa-solid fa-trash"></i></button>
-            </div>
-        </div>
-
-    </section>
-</main>
+        </section>
+    </main>
 <script src="MenuBurgerScript.js"></script>
 </body>

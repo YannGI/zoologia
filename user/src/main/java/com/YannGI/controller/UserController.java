@@ -37,7 +37,7 @@ public class UserController
     // #####################################################
 
     @PostMapping("createUser")
-    public Utilisateur createUser(@RequestBody Utilisateur utilisateur)
+    public Utilisateur createUser (@RequestBody Utilisateur utilisateur)
     {
         userService.createUser(utilisateur);
         return utilisateur;
@@ -50,8 +50,8 @@ public class UserController
     }
 
     @DeleteMapping("deleteUser")
-    public void deleteUser(@RequestParam Long id)
+    public void deleteUser(@RequestParam int idUser)
     {
-        userService.deleteUser(id);
+        userService.deleteUser(idUser);
     }
 }

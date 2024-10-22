@@ -17,31 +17,31 @@
 </head>
 
 <body class="body">
-<header class="Header">
-    <div class="fix-me">
-        <div class="card1 closed">
-            <div class="contain-navbar-image">
-                <img th:src="@{images/ZOOLOGIA.png}">
-            </div>
-            <div class="contain-navbar-searchbar">
-                <div class="input-group form-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></i></span>
-                    </div>
-                    <input  type="search" class="form-control" name="search" placeholder=" recherche">
+    <header class="Header">
+        <div class="fix-me">
+            <div class="card1 closed">
+                <div class="contain-navbar-image">
+                    <img th:src="@{images/ZOOLOGIA.png}">
                 </div>
-            </div>
+                <div class="contain-navbar-searchbar">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></i></span>
+                        </div>
+                        <input  type="search" class="form-control" name="search" placeholder=" recherche">
+                    </div>
+                </div>
 
-            <div class="contain-navbar-buttons">
-                <button class="btn active"><i class="fa-solid fa-house"></i> ACCUEIL</button>
-                <button class="btn"><i class="fa-solid fa-heart-circle-check"></i> FAVORIS</button>
-                <button class="btn"> <i class="fa-solid fa-user"></i> COMPTE</button>
-                <button class="btn"><i class="fa-solid fa-display"></i></i> L'APPLI</button>
+                <div class="contain-navbar-buttons">
+                    <button class="btn active"><i class="fa-solid fa-house"></i> <a th:href="@{/HomeZoologia}"> ACCUEIL</a> </button>
+                    <button class="btn"><i class="fa-solid fa-heart-circle-check"></i> <a th:href="@{/Favoris}"> FAVORIS</a> </button>
+                    <button class="btn"> <i class="fa-solid fa-user"></i> <a th:href="@{/DetailCompte}"> COMPTE</a> </button>
+                    <button class="btn"><i class="fa-solid fa-display"></i><a th:href="@{/ModifAppMenu}"> L'APPLI</a> </button>
+                </div>
+                <button class="btn menuburger"><i class="fa-solid fa-bars"></i></button>
             </div>
-            <button class="btn menuburger"><i class="fa-solid fa-bars"></i></button>
         </div>
-    </div>
-</header>
+    </header>
 
     <main class="main">
 
@@ -60,21 +60,21 @@
         <section class="main-box">
 
             <div class="main-box-card" th:each="animal : ${animals}">
-                <img class="main-box-card-image" th:src="@{${animal.ppimage}}"  alt=""> <!-- src="IMG/tigrecard.jpg" -->
-                <h2 class="main-box-card-titleName" th:text="${animal.nom}">panthère noire</h2>
-                <h3 class="main-box-card-etiquetteCard1" th:text="${animal.statut}">en danger</h3>
+                <img class="main-box-card-image" th:src="@{${animal.ppimage}}"  alt="">
+                <h2 class="main-box-card-titleName" th:text="${animal.nom}"><!--panthère noire--></h2>
+                <h3 class="main-box-card-etiquetteCard1" th:text="${animal.statut}"><!--en danger--></h3>
                 <div class="main-box-card-divFam">
-                    <h3 class="main-box-card-divFam-famille" th:text="${animal.famille}">Vertébré <i class="fa-solid fa-people-group"></i></h3>
-                    <h3 class="main-box-card-divFam-categorie" th:text="${animal.categorie}">félin <i class="fa-solid fa-paw"></i></h3>
+                    <h3 class="main-box-card-divFam-famille" th:text="${animal.famille}"><!--Vertébré--> <i class="fa-solid fa-people-group"></i></h3>
+                    <h3 class="main-box-card-divFam-categorie" th:text="${animal.categorie}"><!--félin--> <i class="fa-solid fa-paw"></i></h3>
                 </div>
-                <!-- <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> -->
                 <div class="main-box-card-flexMore">
                     <button class="main-box-card-flexMore-addMyList">
                         <i class="fa-solid fa-heart"></i>
                     </button>
-                    <button class="main-box-card-flexMore-enSavoirPlus">en savoir +</button>
+                    <button class="main-box-card-flexMore-enSavoirPlus">en savoir +<a th:href="@{/AnimalDetail}"></a></button>
                 </div>
             </div>
+
             <div class="main-box-card">
                 <img class="main-box-card-image" th:src="@{images/tigrecard.jpg}" alt="">
                 <h2 class="main-box-card-titleName">tigre doré</h2>
@@ -124,7 +124,7 @@
                 </div>
             </div>
 
-            <div class="main-box-card">
+          <!--  <div class="main-box-card">
                 <img class="main-box-card-image" th:src="@{images/tigrecard.jpg}" alt="">
                 <h2 class="main-box-card-titleName">panthère noire</h2>
                 <h3 class="main-box-card-etiquetteCard1">en danger</h3>
@@ -132,7 +132,7 @@
                     <h3 class="main-box-card-divFam-famille">Vertébré <i class="fa-solid fa-people-group"></i></h3>
                     <h3 class="main-box-card-divFam-categorie">félin <i class="fa-solid fa-paw"></i></h3>
                 </div>
-                <!-- <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> -->
+                &lt;!&ndash; <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> &ndash;&gt;
                 <div class="main-box-card-flexMore">
                     <button class="main-box-card-flexMore-addMyList">
                         <i class="fa-solid fa-heart"></i>
@@ -148,7 +148,7 @@
                     <h3 class="main-box-card-divFam-famille">Vertébré <i class="fa-solid fa-people-group"></i></h3>
                     <h3 class="main-box-card-divFam-categorie">félin <i class="fa-solid fa-paw"></i></h3>
                 </div>
-                <!-- <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> -->
+                &lt;!&ndash; <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> &ndash;&gt;
                 <div class="main-box-card-flexMore">
                     <button class="main-box-card-flexMore-addMyList">
                         <i class="fa-solid fa-heart"></i>
@@ -164,7 +164,7 @@
                     <h3 class="main-box-card-divFam-famille">Vertébré <i class="fa-solid fa-people-group"></i></h3>
                     <h3 class="main-box-card-divFam-categorie">félin <i class="fa-solid fa-paw"></i></h3>
                 </div>
-                <!-- <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> -->
+                &lt;!&ndash; <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> &ndash;&gt;
                 <div class="main-box-card-flexMore">
                     <button class="main-box-card-flexMore-addMyList">
                         <i class="fa-solid fa-heart"></i>
@@ -180,16 +180,16 @@
                     <h3 class="main-box-card-divFam-famille">Vertébré <i class="fa-solid fa-people-group"></i></h3>
                     <h3 class="main-box-card-divFam-categorie">félin <i class="fa-solid fa-paw"></i></h3>
                 </div>
-                <!-- <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> -->
+                &lt;!&ndash; <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> &ndash;&gt;
                 <div class="main-box-card-flexMore">
                     <button class="main-box-card-flexMore-addMyList">
                         <i class="fa-solid fa-heart"></i>
                     </button>
                     <button class="main-box-card-flexMore-enSavoirPlus">en savoir +</button>
                 </div>
-            </div>
+            </div>-->
 
-            <div class="main-box-card">
+            <!--<div class="main-box-card">
                 <img class="main-box-card-image" th:src="@{images/tigrecard.jpg}" alt="">
                 <h2 class="main-box-card-titleName">panthère noire</h2>
                 <h3 class="main-box-card-etiquetteCard1">en danger</h3>
@@ -197,7 +197,7 @@
                     <h3 class="main-box-card-divFam-famille">Vertébré <i class="fa-solid fa-people-group"></i></h3>
                     <h3 class="main-box-card-divFam-categorie">félin <i class="fa-solid fa-paw"></i></h3>
                 </div>
-                <!-- <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> -->
+                &lt;!&ndash; <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> &ndash;&gt;
                 <div class="main-box-card-flexMore">
                     <button class="main-box-card-flexMore-addMyList">
                         <i class="fa-solid fa-heart"></i>
@@ -213,7 +213,7 @@
                     <h3 class="main-box-card-divFam-famille">Vertébré <i class="fa-solid fa-people-group"></i></h3>
                     <h3 class="main-box-card-divFam-categorie">félin <i class="fa-solid fa-paw"></i></h3>
                 </div>
-                <!-- <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> -->
+                &lt;!&ndash; <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> &ndash;&gt;
                 <div class="main-box-card-flexMore">
                     <button class="main-box-card-flexMore-addMyList">
                         <i class="fa-solid fa-heart"></i>
@@ -229,7 +229,7 @@
                     <h3 class="main-box-card-divFam-famille">Vertébré <i class="fa-solid fa-people-group"></i></h3>
                     <h3 class="main-box-card-divFam-categorie">félin <i class="fa-solid fa-paw"></i></h3>
                 </div>
-                <!-- <p class="main-box-card-paragraphe">ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> -->
+                &lt;!&ndash; <p class="main-box-card-paragraphe">ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> &ndash;&gt;
                 <div class="main-box-card-flexMore">
                     <button class="main-box-card-flexMore-addMyList">
                         <i class="fa-solid fa-heart"></i>
@@ -245,16 +245,16 @@
                     <h3 class="main-box-card-divFam-famille">Vertébré <i class="fa-solid fa-people-group"></i></h3>
                     <h3 class="main-box-card-divFam-categorie">félin <i class="fa-solid fa-paw"></i></h3>
                 </div>
-                <!-- <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> -->
+                &lt;!&ndash; <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> &ndash;&gt;
                 <div class="main-box-card-flexMore">
                     <button class="main-box-card-flexMore-addMyList">
                         <i class="fa-solid fa-heart"></i>
                     </button>
                     <button class="main-box-card-flexMore-enSavoirPlus">en savoir +</button>
                 </div>
-            </div>
+            </div>-->
 
-            <div class="main-box-card">
+        <!--    <div class="main-box-card">
                 <img class="main-box-card-image" th:src="@{images/tigrecard.jpg}" alt="">
                 <h2 class="main-box-card-titleName">panthère noire</h2>
                 <h3 class="main-box-card-etiquetteCard1">en danger</h3>
@@ -262,7 +262,7 @@
                     <h3 class="main-box-card-divFam-famille">Vertébré <i class="fa-solid fa-people-group"></i></h3>
                     <h3 class="main-box-card-divFam-categorie">félin <i class="fa-solid fa-paw"></i></h3>
                 </div>
-                <!-- <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> -->
+                &lt;!&ndash; <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> &ndash;&gt;
                 <div class="main-box-card-flexMore">
                     <button class="main-box-card-flexMore-addMyList">
                         <i class="fa-solid fa-heart"></i>
@@ -278,7 +278,7 @@
                     <h3 class="main-box-card-divFam-famille">Vertébré <i class="fa-solid fa-people-group"></i></h3>
                     <h3 class="main-box-card-divFam-categorie">félin <i class="fa-solid fa-paw"></i></h3>
                 </div>
-                <!-- <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> -->
+                &lt;!&ndash; <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> &ndash;&gt;
                 <div class="main-box-card-flexMore">
                     <button class="main-box-card-flexMore-addMyList">
                         <i class="fa-solid fa-heart"></i>
@@ -294,7 +294,7 @@
                     <h3 class="main-box-card-divFam-famille">Vertébré <i class="fa-solid fa-people-group"></i></h3>
                     <h3 class="main-box-card-divFam-categorie">félin <i class="fa-solid fa-paw"></i></h3>
                 </div>
-                <!-- <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> -->
+                &lt;!&ndash; <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> &ndash;&gt;
                 <div class="main-box-card-flexMore">
                     <button class="main-box-card-flexMore-addMyList">
                         <i class="fa-solid fa-heart"></i>
@@ -310,20 +310,15 @@
                     <h3 class="main-box-card-divFam-famille">Vertébré <i class="fa-solid fa-people-group"></i></h3>
                     <h3 class="main-box-card-divFam-categorie">félin <i class="fa-solid fa-paw"></i></h3>
                 </div>
-                <!-- <p class="main-box-card-paragraphe">ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> -->
+                &lt;!&ndash; <p class="main-box-card-paragraphe">ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> &ndash;&gt;
                 <div class="main-box-card-flexMore">
                     <button class="main-box-card-flexMore-addMyList">
                         <i class="fa-solid fa-heart"></i>
                     </button>
                     <button class="main-box-card-flexMore-enSavoirPlus">en savoir +</button>
                 </div>
-            </div>
+            </div>-->
         </section>
-
-        <!-- <section class="main-video">
-            <video class="main-video-vid" autoplay loop muted plays-inline src="bebeleoremodif.mp4"> </video>
-        </section> -->
-
     </main>
 
     <footer class="Footer">

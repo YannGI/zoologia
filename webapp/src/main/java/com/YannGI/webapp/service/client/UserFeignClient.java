@@ -24,12 +24,12 @@ public interface UserFeignClient
     // ############### CRUD utilisateur ####################
     // #####################################################
 
-    @PostMapping (value = "/createUtilisateur", consumes = "application/json")
-    public ResponseEntity<Utilisateur> createUser(Utilisateur utilisateur);
+    @PostMapping (value = "/createUser", consumes = "application/json")
+    public ResponseEntity<Utilisateur> createUser (@RequestBody Utilisateur utilisateur);
 
     @GetMapping(value = "/getAll",consumes = "application/json")
     public ResponseEntity<List<Utilisateur>> getAllUsers();
 
     @DeleteMapping(value = "/deleteUser",consumes = "application/json")
-    public void deleteUser(@RequestParam Long id);
+    public void deleteUser(@RequestParam int idUser);
 }

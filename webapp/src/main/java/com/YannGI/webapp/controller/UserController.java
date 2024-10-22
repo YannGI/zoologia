@@ -6,10 +6,7 @@ import com.YannGI.webapp.service.UserServiceImpl;
 import com.YannGI.webapp.service.client.UserFeignClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -29,8 +26,6 @@ public class UserController
     // #####################################################
     // ################### SECURITY ########################
     // #####################################################
-
-
     @GetMapping("/HomeZoologia") // page home
     public ModelAndView home()
     {
@@ -50,21 +45,45 @@ public class UserController
         return new ModelAndView("login");
     }
 
+    // #####################################################
+    // ####################### VUES ########################
+    // #####################################################
+    // -----------------------------------------------------
+    // ################# VUE_MODIF_APP #####################
+    @GetMapping("/ModifAppMenu") //vue ModifAppMenu
+    public ModelAndView showModifAppMenu()
+    {
+        return new ModelAndView("ModifAppMenu");
+    }
+
+    // ################# VUE_COMPTE #####################
+    @GetMapping("/DetailCompte") //vue DetailCompte
+    public ModelAndView showDetailCompte()
+    {
+        return new ModelAndView("DetailCompte");
+    }
+
+    // ################# VUE_FAVORIS #####################
+    @GetMapping("/Favoris") //vue Favoris
+    public ModelAndView showFavoris()
+    {
+        return new ModelAndView("Favoris");
+    }
 
     // #####################################################
     // ############### CRUD utilisateur ####################
     // #####################################################
-
+    // -----------------------------------------------------
     // ################### CREATE ##########################
-    @GetMapping("/createUser")  // vue
+    @GetMapping("/CreateUser") // vue CreateUser
     public ModelAndView addUser(Model model)
     {
         model.addAttribute("utilisateur", new Utilisateur());
         return new ModelAndView("CreateUser");
     }
 
-    @PostMapping("/createUser") // @PostMapping("/createUser/valid") // crud
-    public String createUser(@ModelAttribute("utilisateur") Utilisateur utilisateur)
+    @PostMapping("/CreateUser/valid") // crud
+    public String CreateUser(@ModelAttribute("utilisateur") Utilisateur utilisateur)
     {
         userFeignClient.createUser(utilisateur);
         return "redirect:/DeleteUser";
@@ -72,16 +91,16 @@ public class UserController
 
     // ################### DELETE ##########################
     @GetMapping("/listUser")
-    public ModelAndView listUser(Model model) // vue
+    public ModelAndView listUser(Model model) // vue DeleteUser
     {
         model.addAttribute("utilisateurs", userFeignClient.getAllUsers().getBody());
         return new ModelAndView("DeleteUser");
     }
 
-    @GetMapping("/deleteUser/{id}") // crud
-    public String deleteUser(@PathVariable("id")Long id)
+    @GetMapping("/DeleteUser/{idUser}") // crud
+    public String deleteUser(@PathVariable("idUser")int idUser)
     {
-        userFeignClient.deleteUser(id);
+        userFeignClient.deleteUser(idUser);
         return "redirect:/listUser";
     }
 
