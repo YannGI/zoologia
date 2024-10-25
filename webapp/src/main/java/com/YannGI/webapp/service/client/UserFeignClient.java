@@ -13,7 +13,6 @@ public interface UserFeignClient
     // #####################################################
     // ################### SECURITY ########################
     // #####################################################
-
     @PostMapping( value = "/saveUser", consumes = "application/json")
     public ResponseEntity<Utilisateur> saveUser (@RequestBody Utilisateur userSignUpForm);
 
@@ -24,9 +23,15 @@ public interface UserFeignClient
     // ############### CRUD utilisateur ####################
     // #####################################################
 
+    // #################### GET HOME #######################
+    @GetMapping(value = "/findInfoUser",consumes = "application/json")
+    public Utilisateur findInfoUser();
+
+    // #################### CREATE #########################
     @PostMapping (value = "/createUser", consumes = "application/json")
     public ResponseEntity<Utilisateur> createUser (@RequestBody Utilisateur utilisateur);
 
+    // #################### DELETE #########################
     @GetMapping(value = "/getAll",consumes = "application/json")
     public ResponseEntity<List<Utilisateur>> getAllUsers();
 

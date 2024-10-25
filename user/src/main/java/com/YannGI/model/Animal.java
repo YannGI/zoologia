@@ -1,7 +1,6 @@
 package com.YannGI.model;
 
 import jakarta.persistence.*;
-
 import java.util.List;
 
 @Entity
@@ -12,11 +11,11 @@ public class Animal
     private Integer idAnimal;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-            name = "jointure_lieux_animaux",
+            name = "jointure_pays_animaux",
             joinColumns = @JoinColumn(name = "id_animal"),
-            inverseJoinColumns = @JoinColumn(name = "id_lieux")
+            inverseJoinColumns = @JoinColumn(name = "id_pays")
     )
-    private List<Lieux> ListLieux;
+    private List<Pays> ListPays;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_statut")
@@ -37,12 +36,14 @@ public class Animal
     private String poids;
     private String ppimage;
 
-    public Animal() {
+    public Animal()
+    {
+
     }
 
-    public Animal(Integer idAnimal, List<Lieux> listLieux, Statut idStatut, Categorie idCategorie, Famille idFamille, String statFavoris, String nom, String taille, String regimAlim, String description, String poids, String ppimage) {
+    public Animal(Integer idAnimal, List<Pays> listPays, Statut idStatut, Categorie idCategorie, Famille idFamille, String statFavoris, String nom, String taille, String regimAlim, String description, String poids, String ppimage) {
         this.idAnimal = idAnimal;
-        ListLieux = listLieux;
+        ListPays = listPays;
         this.idStatut = idStatut;
         this.idCategorie = idCategorie;
         this.idFamille = idFamille;
@@ -63,12 +64,12 @@ public class Animal
         this.idAnimal = idAnimal;
     }
 
-    public List<Lieux> getListLieux() {
-        return ListLieux;
+    public List<Pays> getListPays() {
+        return ListPays;
     }
 
-    public void setListLieux(List<Lieux> listLieux) {
-        ListLieux = listLieux;
+    public void setListPays(List<Pays> listPays) {
+        ListPays = listPays;
     }
 
     public Statut getIdStatut() {

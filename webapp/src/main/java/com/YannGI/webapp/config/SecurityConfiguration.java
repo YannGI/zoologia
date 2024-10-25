@@ -25,26 +25,6 @@ public class SecurityConfiguration
         return new BCryptPasswordEncoder();
     }
 
-    /*@Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception
-    {
-        http
-            .authorizeHttpRequests((requests) -> requests
-                .requestMatchers("/bootstrapin.min.css","/stylesign_up.css", "/stylesign_in.css", "/images/**", "/signin", "/signup").permitAll()
-                .anyRequest().authenticated()
-            )
-            .formLogin((form) -> form
-                .loginPage("/signin")
-                .permitAll().usernameParameter("email").defaultSuccessUrl("/HomeZoologia", true)
-            )
-            .logout(logout -> logout
-                .logoutUrl("/logout")
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
-                .permitAll()
-            );
-        return http.build();
-    }*/
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception
     {
@@ -57,7 +37,6 @@ public class SecurityConfiguration
                 .logout(LogoutConfigurer::permitAll);
         return http.build();
     }
-
 
     @Bean
     public UserDetailsService userDetailsService()

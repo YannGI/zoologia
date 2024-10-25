@@ -1,7 +1,6 @@
-package com.YannGI.user.controller;
+package com.YannGI.controller;
 
 import com.YannGI.model.Animal;
-import com.YannGI.model.Utilisateur;
 import com.YannGI.service.AnimalService;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +9,6 @@ import java.util.List;
 @RestController
 public class AnimalController
 {
-
     private final AnimalService animalService;
 
     public AnimalController(AnimalService animalService)
@@ -22,7 +20,7 @@ public class AnimalController
     // ################### CRUD animal #####################
     // #####################################################
 
-    // ################### HOME GET #########################
+    // ################### HOME GET ########################
     @GetMapping("findAllAnimals")
     public List<Animal> findAllAnimals()
     {
@@ -45,9 +43,9 @@ public class AnimalController
     }
 
     @DeleteMapping("deleteAnimal")
-    public void deleteAnimal(@RequestParam Long id)
+    public void deleteAnimal(@RequestParam int idAnimal)
     {
-        animalService.deleteAnimal(id);
+        animalService.deleteAnimal(idAnimal);
     }
 
     // ################### UPDATE ##########################

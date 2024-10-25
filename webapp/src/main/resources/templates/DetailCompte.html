@@ -17,40 +17,38 @@
 </head>
 
 <body class="body single">
-<header class="Header">
-    <div class="fix-me">
-        <div class="card1 closed">
-            <div class="contain-navbar-image">
-                <img th:src="@{images/ZOOLOGIA.png}">
-            </div>
-            <div class="contain-navbar-searchbar">
-                <div class="input-group form-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></i></span>
-                    </div>
-                    <input  type="search" class="form-control" name="search" placeholder=" recherche">
+    <header class="Header">
+        <div class="fix-me">
+            <div class="card1 closed">
+                <div class="contain-navbar-image">
+                    <img th:src="@{images/ZOOLOGIA.png}">
                 </div>
-            </div>
+                <div class="contain-navbar-searchbar">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></i></span>
+                        </div>
+                        <input  type="search" class="form-control" name="search" placeholder=" recherche">
+                    </div>
+                </div>
 
-            <div class="contain-navbar-buttons">
-                <button class="btn"><i class="fa-solid fa-house"></i> <a th:href="@{/HomeZoologia}"> ACCUEIL</a> </button>
-                <button class="btn"><i class="fa-solid fa-heart-circle-check"></i> <a th:href="@{/Favoris}"> FAVORIS</a> </button>
-                <button class="btn active"> <i class="fa-solid fa-user"></i> <a th:href="@{/DetailCompte}"> COMPTE</a> </button>
-                <button class="btn"><i class="fa-solid fa-display"></i><a th:href="@{/ModifAppMenu}"> L'APPLI</a> </button>
+                <div class="contain-navbar-buttons">
+                    <button class="btn"><i class="fa-solid fa-house"></i> <a th:href="@{/HomeZoologia}"> ACCUEIL</a> </button>
+                    <button class="btn"><i class="fa-solid fa-heart-circle-check"></i> <a th:href="@{/Favoris}"> FAVORIS</a> </button>
+                    <button class="btn active"> <i class="fa-solid fa-user"></i> <a th:href="@{/DetailCompte}"> COMPTE</a> </button>
+                    <button class="btn"><i class="fa-solid fa-display"></i><a th:href="@{/ModifAppMenu}"> L'APPLI</a> </button>
+                </div>
+                <button class="btn menuburger"><i class="fa-solid fa-bars"></i></button>
             </div>
-            <button class="btn menuburger"><i class="fa-solid fa-bars"></i></button>
         </div>
-    </div>
-</header>
+    </header>
 
     <main class="main">
-        
         <section class="main-content">
-        
             <img class="main-content-img"  th:src="@{images/tablefondCompteBlack.jpg}">
 
             <div class="main-content-cardDescriptionCompte-imagePP">
-                <img class="main-content-cardDescriptionCompte-imagePP-img"  th:src="@{IMG/UserCompte.jpg}" alt="">
+                <img class="main-content-cardDescriptionCompte-imagePP-img"  th:src="@{images/UserCompte.jpg}" alt="">
             </div>
 
             <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
@@ -72,26 +70,15 @@
                 <div class="spoke"></div>
             </div>
 
-           <!-- <section class="main-content-cardDescriptionCompte">
-                <div class="main-content-cardDescriptionCompte-title">
-                    <h1 class="main-content-cardDescriptionCompte-title-username">yann/girardo06*</h1>
-                </div>
-                <div class="main-content-cardDescriptionCompte-infos">
-                    <h3 class="main-content-cardDescriptionCompte-infos-prenom">prenom: yann</h3>
-                    <h3 class="main-content-cardDescriptionCompte-infos-nom">nom: girardo</h3>
-                    <h3 class="main-content-cardDescriptionCompte-infos-email">email: yann_girardo01@gmail.com</h3>
-                    <h3 class="main-content-cardDescriptionCompte-infos-statut">statut: lambda</h3>
-                </div>
-            </section>-->
-            <section class="main-content-cardDescriptionCompte">
+            <section class="main-content-cardDescriptionCompte"><!--th:object="${utilisateur}"-->
                 <div class="main-content-cardDescriptionCompte-title">
                     <h1 class="main-content-cardDescriptionCompte-title-username" th:text="${utilisateur.username}"></h1>
                 </div>
                 <div class="main-content-cardDescriptionCompte-infos">
-                    <h3 class="main-content-cardDescriptionCompte-infos-prenom">prenom: <span th:text="${utilisateur.firstname}"></span></h3>
-                    <h3 class="main-content-cardDescriptionCompte-infos-nom">nom: <span th:text="${utilisateur.lastname}"></span></h3>
-                    <h3 class="main-content-cardDescriptionCompte-infos-email">email: <span th:text="${utilisateur.email}"></span></h3>
-                    <h3 class="main-content-cardDescriptionCompte-infos-statut">statut: <span th:text="${utilisateur.usertype}"></span></h3>
+                    <h3 class="main-content-cardDescriptionCompte-infos-prenom" th:text="'prenom: ' + ${utilisateur.firstname}"></h3>
+                    <h3 class="main-content-cardDescriptionCompte-infos-nom" th:text="'nom: ' + ${utilisateur.lastname}"></h3>
+                    <h3 class="main-content-cardDescriptionCompte-infos-email" th:text="'email: ' + ${utilisateur.email}"></h3>
+                    <h3 class="main-content-cardDescriptionCompte-infos-statut" th:text="'type: ' + ${utilisateur.usertype}"></h3>
                 </div>
             </section>
         </section>

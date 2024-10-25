@@ -19,7 +19,6 @@ public class UserService
     // #####################################################
     // ################### SECURITY ########################
     // #####################################################
-
     public Utilisateur findUser(String email)
     {
         return userRepository.findUserByEmail(email).get();
@@ -34,11 +33,13 @@ public class UserService
     // ############### CRUD utilisateur ####################
     // #####################################################
 
+    // ############### CREATE ####################
     public Utilisateur createUser(Utilisateur utilisateur)
     {
         return userRepository.save(utilisateur);
     }
 
+    // ############### DELETE ####################
     public List<Utilisateur> getAllUsers()
     {
         return userRepository.findAll();

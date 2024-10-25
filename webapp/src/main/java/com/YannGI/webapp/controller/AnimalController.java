@@ -1,14 +1,12 @@
 package com.YannGI.webapp.controller;
 
-import com.YannGI.webapp.model.Animal;
-import com.YannGI.webapp.model.Utilisateur;
+import com.YannGI.webapp.model.*;
+import com.YannGI.webapp.model.DTO.AnimalFormDTO;
 import com.YannGI.webapp.service.client.AnimalFeignClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -28,7 +26,7 @@ public class AnimalController
     // #####################################################
 
     // ################### HOME GET #########################
-    @GetMapping("/animals")
+    @GetMapping("/animals") // vue
     public String getAnimals(Model model)
     {
         List<Animal> animals = animalFeignClient.findAllAnimals();
@@ -37,19 +35,49 @@ public class AnimalController
     }
 
     // ################### CREATE ##########################
-    @GetMapping("/createAnimal")  // vue
+    @GetMapping("/CreateCard") // vue
     public ModelAndView addAnimal(Model model)
     {
-        model.addAttribute("animal", new Animal());
-        return new ModelAndView("CreateAnimal");
+        model.addAttribute("animalFormDTO", new AnimalFormDTO());
+        return new ModelAndView("CreateCard");
     }
 
-    @PostMapping("/createAnimal")  // crud
-    public String createAnimal(@ModelAttribute("animal") Animal animal)
-    {
+  /*  @PostMapping("/CreateAnimal") // crud
+    public String createAnimal(@ModelAttribute("animalFormDTO") AnimalFormDTO animalFormDTO) {
+        // Récupération des données du formulaire
+        *//*Famille famille = new Famille();
+        String nomFamille = animalFormDTO.getNonFamille();
+        famille.setNomFamille(nomFamille);*//*
+
+        String nomFamille = animalFormDTO.getNomCategorie();
+        Famille famille = animalFeignClient.createFamille(nomFamille); // famille
+
+        String nomCategorie = animalFormDTO.getNomCategorie();
+        Categorie categorie = animalFeignClient.createCategorie(nomCategorie); // categorie
+
+        String nomStatut = animalFormDTO.getNomStatut();
+        Statut statut = animalFeignClient.createStatut(nomStatut); // statut
+
+        String nomPays = animalFormDTO.getNomPays();
+        Pays pays = animalFeignClient.createPays(nomPays); // pays
+
+        // Création de l'objet Animal et affectation des valeurs
+        Animal animal = new Animal();
+        animal.setIdFamille(famille);
+        animal.setIdCategorie(categorie);
+        animal.setIdStatut(statut);
+        animal.setNom(animalFormDTO.getNom());
+        animal.setTaille(animalFormDTO.getTaille());
+        animal.setRegimAlim(animalFormDTO.getRegimAlim());
+        animal.setDescription(animalFormDTO.getDescription());
+        animal.setPoids(animalFormDTO.getPoids());
+        // animal.setPpimage(animalFormDTO.getPpimage()); // Assurez-vous de cette ligne si vous avez l'image
+
+        // Envoi de l'objet Animal via FeignClient
         animalFeignClient.createAnimal(animal);
-        return "redirect:/DeleteCard";
-    }
+
+        return "redirect:/listAnimal";
+    }*/
 
     // ################### DELETE ##########################
     @GetMapping("/listAnimal")
@@ -59,10 +87,10 @@ public class AnimalController
         return new ModelAndView("DeleteCard");
     }
 
-    @GetMapping("/deleteAnimal/{id}") // crud
-    public String deleteAnimal(@PathVariable("id")Long id)
+    @GetMapping("/deleteAnimal/{idAnimal}") // crud
+    public String deleteAnimal(@PathVariable("idAnimal")int idAnimal)
     {
-        animalFeignClient.deleteAnimal(id);
+        animalFeignClient.deleteAnimal(idAnimal);
         return "redirect:/listAnimal";
     }
 

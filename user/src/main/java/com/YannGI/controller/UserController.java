@@ -1,5 +1,6 @@
 package com.YannGI.controller;
 
+import com.YannGI.model.Animal;
 import com.YannGI.model.Utilisateur;
 import com.YannGI.service.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,6 @@ public class UserController
     // #####################################################
     // ################### SECURITY ########################
     // #####################################################
-
     @PostMapping ("/findUserByEmail")
     public Utilisateur findUserByEmail (@RequestParam String email)
     {
@@ -36,6 +36,7 @@ public class UserController
     // ############### CRUD utilisateur ####################
     // #####################################################
 
+    // ############### CREATE ####################
     @PostMapping("createUser")
     public Utilisateur createUser (@RequestBody Utilisateur utilisateur)
     {
@@ -43,6 +44,7 @@ public class UserController
         return utilisateur;
     }
 
+    // ############### DELETE ####################
     @GetMapping("getAll")
     public List<Utilisateur> getAllUsers()
     {

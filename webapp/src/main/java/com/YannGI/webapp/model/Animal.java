@@ -8,6 +8,7 @@ public class Animal
     private Statut idStatut;
     private Categorie idCategorie;
     private Famille idFamille;
+    private Pays idPays;
     private String statFavoris;
     private String nom;
     private String taille;
@@ -19,11 +20,12 @@ public class Animal
     public Animal() {
     }
 
-    public Animal(Integer idAnimal, Statut idStatut, Categorie idCategorie, Famille idFamille, String statFavoris, String nom, String taille, String regimAlim, String description, String poids, String ppimage) {
+    public Animal(Integer idAnimal, Statut idStatut, Categorie idCategorie, Famille idFamille, Pays idPays, String statFavoris, String nom, String taille, String regimAlim, String description, String poids, String ppimage) {
         this.idAnimal = idAnimal;
         this.idStatut = idStatut;
         this.idCategorie = idCategorie;
         this.idFamille = idFamille;
+        this.idPays = idPays;
         this.statFavoris = statFavoris;
         this.nom = nom;
         this.taille = taille;
@@ -63,6 +65,14 @@ public class Animal
 
     public void setIdFamille(Famille idFamille) {
         this.idFamille = idFamille;
+    }
+
+    public Pays getIdPays() {
+        return idPays;
+    }
+
+    public void setIdPays(Pays isPays) {
+        this.idPays = isPays;
     }
 
     public String getStatFavoris() {

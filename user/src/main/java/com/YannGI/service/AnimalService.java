@@ -1,7 +1,6 @@
 package com.YannGI.service;
 
 import com.YannGI.model.Animal;
-import com.YannGI.model.Utilisateur;
 import com.YannGI.repository.AnimalRepository;
 import org.springframework.stereotype.Service;
 
@@ -39,9 +38,9 @@ public class AnimalService
         return animalRepository.findAll();
     }
 
-    public void deleteAnimal (Long id)
+    public void deleteAnimal (int idAnimal)
     {
-        animalRepository.deleteById(Long.valueOf(id).intValue());
+        animalRepository.deleteById(idAnimal);
     }
 
     // ################### UPDATE ##########################

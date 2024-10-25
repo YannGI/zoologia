@@ -2,11 +2,15 @@ package com.YannGI.webapp.controller;
 
 import com.YannGI.webapp.model.Utilisateur;
 import com.YannGI.webapp.service.CustomUserDetailsService;
+import com.YannGI.webapp.service.SessionService;
 import com.YannGI.webapp.service.UserServiceImpl;
 import com.YannGI.webapp.service.client.UserFeignClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -15,12 +19,14 @@ public class UserController
     private final UserServiceImpl userServiceImpl;
     private final UserFeignClient userFeignClient;
     private final CustomUserDetailsService userDetailsService;
+    private final SessionService sessionService;
 
-    public UserController(UserServiceImpl userServiceImpl, UserFeignClient userFeignClient, CustomUserDetailsService userDetailsService)
+    public UserController(UserServiceImpl userServiceImpl, UserFeignClient userFeignClient, CustomUserDetailsService userDetailsService, SessionService sessionService)
     {
         this.userServiceImpl = userServiceImpl;
         this.userFeignClient = userFeignClient;
         this.userDetailsService = userDetailsService;
+        this.sessionService = sessionService;
     }
 
     // #####################################################
@@ -48,7 +54,7 @@ public class UserController
     // #####################################################
     // ####################### VUES ########################
     // #####################################################
-    // -----------------------------------------------------
+
     // ################# VUE_MODIF_APP #####################
     @GetMapping("/ModifAppMenu") //vue ModifAppMenu
     public ModelAndView showModifAppMenu()
@@ -57,9 +63,10 @@ public class UserController
     }
 
     // ################# VUE_COMPTE #####################
-    @GetMapping("/DetailCompte") //vue DetailCompte
-    public ModelAndView showDetailCompte()
+    @GetMapping("/DetailCompte") // vue
+    public ModelAndView getInfoCompteUser(Model model)
     {
+        model.addAttribute("utilisateur", sessionService.sessionUser());
         return new ModelAndView("DetailCompte");
     }
 
@@ -73,7 +80,7 @@ public class UserController
     // #####################################################
     // ############### CRUD utilisateur ####################
     // #####################################################
-    // -----------------------------------------------------
+
     // ################### CREATE ##########################
     @GetMapping("/CreateUser") // vue CreateUser
     public ModelAndView addUser(Model model)
