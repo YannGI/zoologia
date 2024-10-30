@@ -1,11 +1,10 @@
-
 spring:
   application:
     name: "webapp"
   profiles:
     active: "prod"
   config:
-    import: "optional:configserver:http://localhost8071/"
+    import: "optional:configserver:http://localhost:8071/"
 
 server:
   servlet:

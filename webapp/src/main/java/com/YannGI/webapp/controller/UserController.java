@@ -1,43 +1,33 @@
 package com.YannGI.webapp.controller;
 
 import com.YannGI.webapp.model.Utilisateur;
-import com.YannGI.webapp.service.CustomUserDetailsService;
 import com.YannGI.webapp.service.SessionService;
 import com.YannGI.webapp.service.UserServiceImpl;
-import com.YannGI.webapp.service.client.UserFeignClient;
+import com.YannGI.webapp.service.client.AppandcardFeignClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import java.util.List;
 
 @Controller
 public class UserController
 {
     private final UserServiceImpl userServiceImpl;
-    private final UserFeignClient userFeignClient;
-    private final CustomUserDetailsService userDetailsService;
+    private final AppandcardFeignClient appandcardFeignClient;
     private final SessionService sessionService;
 
-    public UserController(UserServiceImpl userServiceImpl, UserFeignClient userFeignClient, CustomUserDetailsService userDetailsService, SessionService sessionService)
+    public UserController(UserServiceImpl userServiceImpl, AppandcardFeignClient appandcardFeignClient, SessionService sessionService)
     {
         this.userServiceImpl = userServiceImpl;
-        this.userFeignClient = userFeignClient;
-        this.userDetailsService = userDetailsService;
+        this.appandcardFeignClient = appandcardFeignClient;
         this.sessionService = sessionService;
     }
+
 
     // #####################################################
     // ################### SECURITY ########################
     // #####################################################
-    @GetMapping("/HomeZoologia") // page home
-    public ModelAndView home()
-    {
-        return new ModelAndView("HomeZoologia");
-    }
-
     @GetMapping("/signup")
     public ModelAndView showRegisterForm()
     {
@@ -92,26 +82,24 @@ public class UserController
     @PostMapping("/CreateUser/valid") // crud
     public String CreateUser(@ModelAttribute("utilisateur") Utilisateur utilisateur)
     {
-        userFeignClient.createUser(utilisateur);
-        return "redirect:/DeleteUser";
+        appandcardFeignClient.createUser(utilisateur);
+        return "redirect:/listUser";
     }
 
     // ################### DELETE ##########################
     @GetMapping("/listUser")
     public ModelAndView listUser(Model model) // vue DeleteUser
     {
-        model.addAttribute("utilisateurs", userFeignClient.getAllUsers().getBody());
+        model.addAttribute("utilisateurs", appandcardFeignClient.getAllUsers().getBody());
         return new ModelAndView("DeleteUser");
     }
 
     @GetMapping("/DeleteUser/{idUser}") // crud
     public String deleteUser(@PathVariable("idUser")int idUser)
     {
-        userFeignClient.deleteUser(idUser);
+        appandcardFeignClient.deleteUser(idUser);
         return "redirect:/listUser";
     }
 
     // ################### UPDATE ##########################
-
 }
-

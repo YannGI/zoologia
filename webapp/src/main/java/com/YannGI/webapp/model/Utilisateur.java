@@ -6,7 +6,6 @@ public class Utilisateur
     private String firstname;
     private String lastname;
     private String username;
-   /* @Column(unique = true)*/
     private String email;
     private String password;
     private String usertype;

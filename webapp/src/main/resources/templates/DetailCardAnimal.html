@@ -1,0 +1,79 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6eb4e0002f.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jaini&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+    </style>
+    <title>Zoologia_home</title>
+</head>
+
+<body class="body">
+    <header class="Header">
+        <div class="fix-me">
+            <div class="card1 closed">
+                <div class="contain-navbar-image">
+                    <img th:src="@{images/ZOOLOGIA.png}">
+                </div>
+                <div class="contain-navbar-searchbar">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        </div>
+                        <input  type="search" class="form-control" name="search" placeholder=" recherche">
+                    </div>
+                </div>
+
+                <div class="contain-navbar-buttons">
+                    <button class="btn active"><i class="fa-solid fa-house"></i> <a th:href="@{/HomeZoologia}"> ACCUEIL</a> </button>
+                    <button class="btn"><i class="fa-solid fa-heart-circle-check"></i> <a th:href="@{/Favoris}"> FAVORIS</a> </button>
+                    <button class="btn"> <i class="fa-solid fa-user"></i> <a th:href="@{/DetailCompte}"> COMPTE</a> </button>
+                    <button class="btn"><i class="fa-solid fa-display"></i><a th:href="@{/ModifAppMenu}"> L'APPLI</a> </button>
+                </div>
+                <button class="btn menuburger"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="main-content">
+
+            <img class="main-content-img" th:src="@{/images/pontFondModif.jpg}" >
+
+            <div class="main-content-cardDescription-imagePP">
+                <img class="main-content-cardDescription-imagePP-img" th:src="@{|${animal.ppimage}|}">
+            </div>
+
+            <section class="main-content-cardDescription">
+                <div class="main-content-cardDescription-descript">
+                    <h1 class="main-content-cardDescription-descript-titleCard" th:text="${animal.nom}"></h1>
+                    <div class="main-content-cardDescription-descript-ptflex">
+                        <h3 class="main-content-cardDescription-descript-ptflex-infoPoids" th:text="'poids: ' + ${animal.poids}"><i class="fa-solid fa-weight-scale"></i></h3>
+                        <h3 class="main-content-cardDescription-descript-ptflex-infoTaille"th:text="'taille: ' + ${animal.taille}"><i class="fa-solid fa-ruler-vertical"></i></h3>
+                        <h3 class="main-content-cardDescription-descript-ptflex-infoRegimAlim" th:text="'régime alimentaire: ' + ${animal.regimAlim}"><i class="fa-solid fa-utensils"></i></h3>
+                        <h3 class="main-content-cardDescription-descript-ptflex-famille" th:text="'famille: ' + ${animal.idFamille.nomFamille}"><i class="fa-solid fa-people-group"></i></h3>
+                        <h3 class="main-content-cardDescription-descript-ptflex-categorie" th:text="'catégorie: ' +${animal.idCategorie.nomCategorie}"><i class="fa-solid fa-paw"></i></h3>
+                        <h3 class="main-content-cardDescription-descript-ptflex-pays">chine, thailande, vietnam <i class="fa-solid fa-map-location-dot"></i></h3>
+                        <h3 class="main-content-cardDescription-descript-ptflex-statut" th:text="${animal.idStatut.nomStatut}"></h3>
+                    </div>
+                    <p class="maincontent-cardDescription-descript-paragrapheDescription" th:text="${animal.description}"></p>
+                    <div class="main-content-cardDescription-btnFlex">
+                        <button class="main-content-cardDescription-btnFlex-btnAddMyList">
+                            <i class="fa-solid fa-heart-circle-plus"></i>
+                        </button>
+                        <button class="main-content-cardDescription-btnFlex-btnMap">
+                            <i class="fa-solid fa-earth-americas"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+    <script src="/MenuBurgerScript.js"></script>
+</body>

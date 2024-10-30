@@ -1,12 +1,14 @@
 package com.YannGI.webapp.controller;
 
 import com.YannGI.webapp.model.*;
-import com.YannGI.webapp.model.DTO.AnimalFormDTO;
-import com.YannGI.webapp.service.client.AnimalFeignClient;
+import com.YannGI.webapp.model.DTO.AnimalDTO;
+import com.YannGI.webapp.service.client.AppandcardFeignClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -14,83 +16,97 @@ import java.util.List;
 @Controller
 public class AnimalController
 {
-    private final AnimalFeignClient animalFeignClient;
+    private final AppandcardFeignClient appandcardFeignClient;
 
-    public AnimalController(AnimalFeignClient animalFeignClient)
+    public AnimalController(AppandcardFeignClient appandcardFeignClient)
     {
-        this.animalFeignClient = animalFeignClient;
+        this.appandcardFeignClient = appandcardFeignClient;
     }
 
     // #####################################################
     // ################### CRUD animal #####################
     // #####################################################
 
-    // ################### HOME GET #########################
-    @GetMapping("/animals") // vue
-    public String getAnimals(Model model)
+    // #####################################################
+    // ###################### VUES #########################
+    // #####################################################
+
+    // ################### GET HOME ########################
+    @GetMapping("/HomeZoologia") // page home
+    public ModelAndView getAnimals(Model model)
     {
-        List<Animal> animals = animalFeignClient.findAllAnimals();
+        List<Animal> animals = appandcardFeignClient.retrieveAllAnimals().getBody();
         model.addAttribute("animals", animals);
-        return "animals";
+        return new ModelAndView("HomeZoologia");
+    }
+
+    // ############## GET ANIMAL DETAIL ####################
+    @GetMapping("/getAnimalDetailCard/{idAnimal}") // page animal_detail
+    public ModelAndView getAnimalDetailInfo(@PathVariable("idAnimal")int idAnimal, Model model)
+    {
+        model.addAttribute("animal", appandcardFeignClient.getAnimalDetail(idAnimal));
+        return new ModelAndView("carddescription/Animaldetail");
     }
 
     // ################### CREATE ##########################
-    @GetMapping("/CreateCard") // vue
+   /* @GetMapping("/CreateCard") // vue
     public ModelAndView addAnimal(Model model)
     {
-        model.addAttribute("animalFormDTO", new AnimalFormDTO());
+        model.addAttribute("animalFormDTO", new AnimalDTO());
         return new ModelAndView("CreateCard");
-    }
+    }*/
 
-  /*  @PostMapping("/CreateAnimal") // crud
-    public String createAnimal(@ModelAttribute("animalFormDTO") AnimalFormDTO animalFormDTO) {
+  /* @PostMapping("/CreateAnimal") // crud
+   public String createAnimal(@ModelAttribute("animalFormDTO") AnimalDTO animalDTO)
+   {
         // Récupération des données du formulaire
-        *//*Famille famille = new Famille();
-        String nomFamille = animalFormDTO.getNonFamille();
+        *//*String nomFamille = animalDTO.getNonFamille();
         famille.setNomFamille(nomFamille);*//*
 
-        String nomFamille = animalFormDTO.getNomCategorie();
-        Famille famille = animalFeignClient.createFamille(nomFamille); // famille
+       *//* Famille famille = new Famille();
+        String nomFamille = animalDTO.getNonFamille();
+        famille = appandcardFeignClient.createFamille(nomFamille);
 
-        String nomCategorie = animalFormDTO.getNomCategorie();
-        Categorie categorie = animalFeignClient.createCategorie(nomCategorie); // categorie
+        String nomCategorie = animalDTO.getNomCategorie();
+        Categorie categorie = appandcardFeignClient.createCategorie(nomCategorie); // categorie
 
-        String nomStatut = animalFormDTO.getNomStatut();
-        Statut statut = animalFeignClient.createStatut(nomStatut); // statut
+        String nomStatut = animalDTO.getNomStatut();
+        Statut statut = appandcardFeignClient.createStatut(nomStatut); // statut
 
-        String nomPays = animalFormDTO.getNomPays();
-        Pays pays = animalFeignClient.createPays(nomPays); // pays
+        String nomPays = animalDTO.getNomPays();
+        Pays pays = appandcardFeignClient.createPays(nomPays); // pays
 
         // Création de l'objet Animal et affectation des valeurs
         Animal animal = new Animal();
         animal.setIdFamille(famille);
         animal.setIdCategorie(categorie);
         animal.setIdStatut(statut);
-        animal.setNom(animalFormDTO.getNom());
-        animal.setTaille(animalFormDTO.getTaille());
-        animal.setRegimAlim(animalFormDTO.getRegimAlim());
-        animal.setDescription(animalFormDTO.getDescription());
-        animal.setPoids(animalFormDTO.getPoids());
+
+        animal.setNom(animalDTO.getNom());
+        animal.setTaille(animalDTO.getTaille());
+        animal.setRegimAlim(animalDTO.getRegimAlim());
+        animal.setDescription(animalDTO.getDescription());
+        animal.setPoids(animalDTO.getPoids());
         // animal.setPpimage(animalFormDTO.getPpimage()); // Assurez-vous de cette ligne si vous avez l'image
 
         // Envoi de l'objet Animal via FeignClient
-        animalFeignClient.createAnimal(animal);
+        appandcardFeignClient.createAnimal(animal);
 
-        return "redirect:/listAnimal";
+        return "redirect:/listAnimal";*//*
     }*/
 
     // ################### DELETE ##########################
     @GetMapping("/listAnimal")
     public ModelAndView listAnimal(Model model) // vue
     {
-        model.addAttribute("animals", animalFeignClient.getAllAnimals().getBody());
+        model.addAttribute("animals", appandcardFeignClient.getListAnimals().getBody());
         return new ModelAndView("DeleteCard");
     }
 
-    @GetMapping("/deleteAnimal/{idAnimal}") // crud
+    @GetMapping("/deleteCardAnimal/{idAnimal}") // crud
     public String deleteAnimal(@PathVariable("idAnimal")int idAnimal)
     {
-        animalFeignClient.deleteAnimal(idAnimal);
+        appandcardFeignClient.deleteAnimal(idAnimal);
         return "redirect:/listAnimal";
     }
 

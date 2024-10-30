@@ -1,6 +1,5 @@
 package com.YannGI.webapp.model;
 
-import java.util.List;
 
 public class Animal
 {
@@ -71,8 +70,8 @@ public class Animal
         return idPays;
     }
 
-    public void setIdPays(Pays isPays) {
-        this.idPays = isPays;
+    public void setIdPays(Pays idPays) {
+        this.idPays = idPays;
     }
 
     public String getStatFavoris() {
@@ -131,4 +130,3 @@ public class Animal
         this.ppimage = ppimage;
     }
 }
-

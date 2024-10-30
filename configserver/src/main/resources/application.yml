@@ -8,8 +8,8 @@ spring:
     config:
       server:
         # native:
-          # search-locations: "classpath:/config"
-          # search-locations: "file://Users//YannGI:Documents//config"
+        # search-locations: "classpath:/config"
+        # search-locations: "file://Users//YannGI:Documents//config"
         git:
           uri: "https://github.com/YannGI/zoologia-config"
           default-label: main

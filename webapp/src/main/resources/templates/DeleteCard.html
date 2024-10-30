@@ -1,11 +1,9 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"
->
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="index.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
@@ -44,27 +42,27 @@
     </header>
 
     <main class="main">
-        <h2 class="titleCrea titleDelete">SUPPRIMER UNE ANIMAL-CARD</h2>
+        <h2 class="titleCrea titleDelete">LES ANIMAUX</h2>
         <div class="card-bodyL">
             <table class="minimalistBlack">
                 <thead>
                     <tr>
                         <th>id animal</th>
-                        <th>id statut</th>
-                        <th>id categorie</th>
-                        <th>id famille</th>
+                        <th>statut</th>
+                        <th>categorie</th>
+                        <th>famille</th>
                         <th>nom</th>
                         <th>taille</th>
                         <th>poids</th>
-                        <th>regim alim</th>
+                        <th>regimeAlimentaire</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="animal : ${animal}">
+                    <tr th:each="animal : ${animals}">
                         <td th:text="*{animal.idAnimal}"></td>
-                        <td th:text="*{animal.idStatut}"></td>
-                        <td th:text="*{animal.idCategorie}"></td>
-                        <td th:text="*{animal.idFamille}"></td>
+                        <td th:text="*{animal.idStatut.nomStatut}"></td>
+                        <td th:text="*{animal.idCategorie.nomCategorie}"></td>
+                        <td th:text="*{animal.idFamille.nomFamille}"></td>
                         <td th:text="*{animal.nom}"></td>
                         <td th:text="*{animal.taille}"></td>
                         <td th:text="*{animal.poids}"></td>
@@ -72,7 +70,7 @@
                         <td class="text-center">
                             <a th:href="@{/edit/{id}(id=${animal.idAnimal})}">Modif</a>
                             <td>
-                                <button class="deleteBTN"><a class="aDeleteBTN"  th:href="@{/deleteAnimal/{id}(id=${animal.idAnimal})}">Suppr</a></button>
+                                <button class="deleteBTN"><a class="aDeleteBTN"  th:href="@{/deleteCardAnimal/{id}(id=${animal.idAnimal})}">Suppr</a></button>
                             </td>
                         </td>
                     </tr>
