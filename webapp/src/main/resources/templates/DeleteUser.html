@@ -63,7 +63,7 @@
                         <td th:text="*{utilisateur.username}"></td>
                         <td th:text="*{utilisateur.email}"></td>
                         <td class="text-center">
-                            <a th:href="@{/edit/{id}(id=${utilisateur.idUser})}">Modif</a>
+                            <a th:href="@{/UpdateUser/{idUser}(idUser=${utilisateur.idUser})}">Modif</a>
                             <td>
                                 <button class="deleteBTN"><a class="aDeleteBTN" th:href="@{DeleteUser/{idUser}(idUser=${utilisateur.idUser})}">Suppr</a></button>
                             </td>

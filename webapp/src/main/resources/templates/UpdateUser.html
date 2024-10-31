@@ -1,0 +1,99 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6eb4e0002f.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jaini&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+    </style>
+    <title>CreateUser</title>
+</head>
+
+<body class="body">
+<header class="Header">
+    <div class="fix-me">
+        <div class="card1 closed">
+            <div class="contain-navbar-image">
+                <img th:src="@{images/ZOOLOGIA.png}">
+            </div>
+            <div class="contain-navbar-searchbar">
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></i></span>
+                    </div>
+                    <input  type="search" class="form-control" name="search" placeholder=" recherche">
+                </div>
+            </div>
+
+            <div class="contain-navbar-buttons">
+                <button class="btn"><i class="fa-solid fa-house"></i> <a th:href="@{/HomeZoologia}"> ACCUEIL</a> </button>
+                <button class="btn"><i class="fa-solid fa-heart-circle-check"></i> <a th:href="@{/Favoris}"> FAVORIS</a> </button>
+                <button class="btn"> <i class="fa-solid fa-user"></i> <a th:href="@{/DetailCompte}"> COMPTE</a> </button>
+                <button class="btn active"><i class="fa-solid fa-display"></i><a th:href="@{/ModifAppMenu}"> L'APPLI</a> </button>
+            </div>
+            <button class="btn menuburger"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <h2 class="titleCreaC">MODIFIER UTILISATEUR</h2>
+
+    <section class="card-form">
+        <form th:action="@{/UpdateUser/valid}" th:object="${utilisateur}" method="post">
+            <div class="input-group form-group1">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa-solid fa-otter f"></i></span>
+                </div>
+                <input  th:field="*{firstname}" type="text" class="form-control form-crea" name="firstname" placeholder=" firstname">
+            </div>
+            <div class="input-group form-group2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa-solid fa-weight-scale f"></i></span>
+                </div>
+                <input  th:field="*{lastname}" type="text" class="form-control form-crea2" name="lastname" placeholder=" lastname">
+            </div>
+            <div class="input-group form-group3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa-solid fa-ruler-vertical f"></i></span>
+                </div>
+                <input  th:field="*{username}" type="text" class="form-control form-crea" name="username" placeholder=" username">
+            </div>
+            <div class="input-group form-group4">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa-solid fa-utensils"></i></span>
+                </div>
+                <input  th:field="*{email}" type="text" class="form-control form-crea2" name="email" placeholder=" email">
+            </div>
+            <div class="input-group form-group5">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa-solid fa-people-group f"></i></span>
+                </div>
+                <input  th:field="*{password}"  type="text" class="form-control form-crea" name="password" placeholder=" password">
+            </div>
+            <div class="input-group form-group6">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa-solid fa-paw f"></i></span>
+                </div>
+                <input th:field="*{usertype}" type="text" class="form-control form-crea2" name="usertype" placeholder=" usertype">
+            </div>
+            <div class="input-group form-group7">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa-solid fa-map-location-dot f"></i></span>
+                </div>
+                <input th:field="*{sirette}" type="text" class="form-control form-crea" name="sirette" placeholder=" sirette">
+                <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('sirette')}" th:errors="*{sirette}"></p>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="valider" class="btn btnFCreaUser">
+            </div>
+        </form>
+    </section>
+</main>
+<script src="MenuBurgerScript.js"></script>
+</body>
