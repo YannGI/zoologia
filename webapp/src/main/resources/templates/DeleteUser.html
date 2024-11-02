@@ -48,22 +48,20 @@
             <table class="minimalistBlack">
                 <thead>
                     <tr>
-                        <th>id user</th>
-                        <th>firstname</th>
-                        <th>lastname</th>
-                        <th>username</th>
+                        <th>prénom</th>
+                        <th>nom</th>
+                        <th>pseudonyme</th>
                         <th>email</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="utilisateur : ${utilisateurs}">
-                        <td th:text="*{utilisateur.idUser}"></td>
                         <td th:text="*{utilisateur.firstname}"></td>
                         <td th:text="*{utilisateur.lastname}"></td>
                         <td th:text="*{utilisateur.username}"></td>
                         <td th:text="*{utilisateur.email}"></td>
                         <td class="text-center">
-                            <a th:href="@{/UpdateUser/{idUser}(idUser=${utilisateur.idUser})}">Modif</a>
+                            <a th:href="@{UpdateUser/{idUser}(idUser=${utilisateur.idUser})}">Modif</a>
                             <td>
                                 <button class="deleteBTN"><a class="aDeleteBTN" th:href="@{DeleteUser/{idUser}(idUser=${utilisateur.idUser})}">Suppr</a></button>
                             </td>

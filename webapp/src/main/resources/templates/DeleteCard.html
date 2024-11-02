@@ -47,28 +47,26 @@
             <table class="minimalistBlack">
                 <thead>
                     <tr>
-                        <th>id animal</th>
-                        <th>statut</th>
-                        <th>categorie</th>
-                        <th>famille</th>
                         <th>nom</th>
                         <th>taille</th>
                         <th>poids</th>
                         <th>regimeAlimentaire</th>
+                        <th>statut</th>
+                        <th>categorie</th>
+                        <th>famille</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="animal : ${animals}">
-                        <td th:text="*{animal.idAnimal}"></td>
-                        <td th:text="*{animal.idStatut.nomStatut}"></td>
-                        <td th:text="*{animal.idCategorie.nomCategorie}"></td>
-                        <td th:text="*{animal.idFamille.nomFamille}"></td>
                         <td th:text="*{animal.nom}"></td>
                         <td th:text="*{animal.taille}"></td>
                         <td th:text="*{animal.poids}"></td>
                         <td th:text="*{animal.regimAlim}"></td>
+                        <td th:text="*{animal.idStatut.nomStatut}"></td>
+                        <td th:text="*{animal.idCategorie.nomCategorie}"></td>
+                        <td th:text="*{animal.idFamille.nomFamille}"></td>
                         <td class="text-center">
-                            <a th:href="@{/edit/{id}(id=${animal.idAnimal})}">Modif</a>
+                            <a th:href="@{/UpdateAnimal/{id}(id=${animal.idAnimal})}">Modif</a>
                             <td>
                                 <button class="deleteBTN"><a class="aDeleteBTN"  th:href="@{/deleteCardAnimal/{id}(id=${animal.idAnimal})}">Suppr</a></button>
                             </td>

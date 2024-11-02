@@ -1,5 +1,6 @@
 package com.YannGI.appandcard.controller;
 
+import com.YannGI.appandcard.model.Animal;
 import com.YannGI.appandcard.model.Utilisateur;
 import com.YannGI.appandcard.service.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -55,5 +56,19 @@ public class UserController
     public void deleteUser(@RequestParam int idUser)
     {
         userService.deleteUser(idUser);
+    }
+
+    // ############### UPDATE ####################
+    @GetMapping("/findUserByIdUser")
+    public Utilisateur findUserByIdUser (@RequestParam int idUser)
+    {
+        return userService.findUserByIdUser(idUser);
+    }
+
+    @PostMapping("/updateUser")
+    public Utilisateur updateUser (@RequestBody Utilisateur utilisateur)
+    {
+        userService.updateUser(utilisateur);
+        return utilisateur;
     }
 }

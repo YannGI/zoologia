@@ -102,4 +102,18 @@ public class UserController
     }
 
     // ################### UPDATE ##########################
+    @GetMapping("/UpdateUser/{idUser}") // vue UpdateUser
+    public String showUpdateUserForm(@PathVariable("idUser") int idUser, Model model)
+    {
+        Utilisateur utilisateur = appandcardFeignClient.findUserByIdUser(idUser);
+        model.addAttribute("utilisateur", utilisateur);
+        return "UpdateUser/UpdateUser";
+    }
+
+    @PostMapping("/UpdateUser/valid") // crud
+    public String updateUser(@ModelAttribute("utilisateur") Utilisateur utilisateur)
+    {
+        appandcardFeignClient.updateUser(utilisateur);
+        return "redirect:/listUser";
+    }
 }

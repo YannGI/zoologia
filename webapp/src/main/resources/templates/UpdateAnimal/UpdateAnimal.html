@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="../index.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Jaini&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
   </style>
-  <title>CreateUser</title>
+  <title>CreateCard_Animal</title>
 </head>
 
 <body class="body">
@@ -19,7 +19,7 @@
         <div class="fix-me">
             <div class="card1 closed">
                 <div class="contain-navbar-image">
-                    <img th:src="@{images/ZOOLOGIA.png}">
+                    <img th:src="@{../images/ZOOLOGIA.png}">
                 </div>
                 <div class="contain-navbar-searchbar">
                     <div class="input-group form-group">
@@ -42,67 +42,70 @@
     </header>
 
     <main>
-        <h2 class="titleCreaC">CREER UN UTILISATEUR</h2>
-        
+        <h2 class="titleCreaC">MODIFIER ANIMAL-CARD</h2>
         <section class="card-form">
-            <form th:action="@{/CreateUser/valid}" th:object="${utilisateur}" method="post">
+            <form th:action="@{/CreateAnimal}" th:object="${animal}" method="post">
                 <div class="input-group form-group1">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                        <span class="input-group-text"><i class="fa-solid fa-otter f"></i></span>
                     </div>
-                    <input  th:field="*{firstname}" type="text" class="form-control form-crea" name="firstname" placeholder=" firstname">
-                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></p>
+                    <input th:field="*{nom}" type="text" class="form-control form-crea" name="nom" placeholder=" nom">
                 </div>
                 <div class="input-group form-group2">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                        <span class="input-group-text"><i class="fa-solid fa-weight-scale f"></i></span>
                     </div>
-                    <input  th:field="*{lastname}" type="text" class="form-control form-crea2" name="lastname" placeholder=" lastname">
-                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></p>
+                    <input th:field="*{poids}" type="text" class="form-control form-crea2" name="poids" placeholder=" poids">
                 </div>
                 <div class="input-group form-group3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa-solid fa-user-tag"></i></span>
+                        <span class="input-group-text"><i class="fa-solid fa-ruler-vertical f"></i></span>
                     </div>
-                    <input  th:field="*{username}" type="text" class="form-control form-crea" name="username" placeholder=" username">
-                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+                    <input th:field="*{taille}" type="text" class="form-control form-crea" name="taille" placeholder=" taille">
                 </div>
                 <div class="input-group form-group4">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+                        <span class="input-group-text"><i class="fa-solid fa-utensils"></i></span>
                     </div>
-                    <input  th:field="*{email}" type="text" class="form-control form-crea2" name="email" placeholder=" email">
-                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                    <input th:field="*{regimAlim}" type="text" class="form-control form-crea2" name="regimAlim" placeholder=" regimeAlimentaire">
                 </div>
-                <div class="input-group form-group5">
+                <!--<div class="input-group form-group5">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa-solid fa-key"></i></span>
+                        <span class="input-group-text"><i class="fa-solid fa-people-group f"></i></span>
                     </div>
-                    <input  th:field="*{password}"  type="text" class="form-control form-crea" name="password" placeholder=" password">
-                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+                    <input th:text="*{idFamille.nonFamille}" type="text" class="form-control form-crea" name="nonFamille" placeholder=" famille">
                 </div>
                 <div class="input-group form-group6">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa-solid fa-tag"></i></span>
+                        <span class="input-group-text"><i class="fa-solid fa-paw f"></i></span>
                     </div>
-                    <input th:field="*{usertype}" type="text" class="form-control form-crea2" name="usertype" placeholder=" usertype">
-                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('usertype')}" th:errors="*{usertype}"></p>
+                    <input th:field="*{idCategorie.nomCategorie}" type="text" class="form-control form-crea2" name="categorie" placeholder=" categorie">
                 </div>
                 <div class="input-group form-group7">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa-solid fa-file-signature"></i></span>
+                        <span class="input-group-text"><i class="fa-solid fa-map-location-dot f"></i></span>
                     </div>
-                    <input th:field="*{sirette}" type="text" class="form-control form-crea" name="sirette" placeholder=" sirette">
-                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('sirette')}" th:errors="*{sirette}"></p>
+                    <input th:field="*{idPays.nomPays}" type="text" class="form-control form-crea" name="pays" placeholder=" pays">
+                </div>
+                <div class="input-group form-group8">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text ff"><i class="fa-solid fa-temperature-half f"></i></span>
+                    </div>
+                    <input th:field="*{idStatut.nomStatut}" type="text" class="form-control form-crea2" name="statut" placeholder=" statut">
+                </div>-->
+                <div class="input-group form-group9">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa-solid fa-pen f"></i></span>
+                    </div>
+                    <input th:field="*{description}" type="text" class="form-control form-crea" name="description" placeholder=" description">
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="valider" class="btn btnFCreaUser">
+                    <input type="submit" value="valider" class="btn btnFCrea">
                 </div>
             </form>
         </section>
-        <!-- <img  class="imgCreaC" src="IMG/creaCardBlackRE.jpg" alt=""> -->
     </main>
-    <script src="MenuBurgerScript.js"></script>
+<script src="../MenuBurgerScript.js"></script>
 </body>
 
     

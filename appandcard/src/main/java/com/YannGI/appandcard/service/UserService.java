@@ -1,5 +1,6 @@
 package com.YannGI.appandcard.service;
 
+import com.YannGI.appandcard.model.Animal;
 import com.YannGI.appandcard.model.Utilisateur;
 import com.YannGI.appandcard.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -51,4 +52,13 @@ public class UserService
     }
 
     // ############### UPDATE ####################
+    public Utilisateur findUserByIdUser(int idUser)
+    {
+        return userRepository.findUserByIdUser(idUser).get();
+    }
+
+    public Utilisateur updateUser(Utilisateur utilisateur)
+    {
+        return userRepository.save(utilisateur);
+    }
 }

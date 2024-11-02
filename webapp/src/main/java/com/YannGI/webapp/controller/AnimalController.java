@@ -49,23 +49,18 @@ public class AnimalController
     }
 
     // ################### CREATE ##########################
-   /* @GetMapping("/CreateCard") // vue
+    @GetMapping("/CreateCard") // vue
     public ModelAndView addAnimal(Model model)
     {
         model.addAttribute("animalFormDTO", new AnimalDTO());
         return new ModelAndView("CreateCard");
-    }*/
+    }
 
-  /* @PostMapping("/CreateAnimal") // crud
-   public String createAnimal(@ModelAttribute("animalFormDTO") AnimalDTO animalDTO)
-   {
-        // Récupération des données du formulaire
-        *//*String nomFamille = animalDTO.getNonFamille();
-        famille.setNomFamille(nomFamille);*//*
-
-       *//* Famille famille = new Famille();
-        String nomFamille = animalDTO.getNonFamille();
-        famille = appandcardFeignClient.createFamille(nomFamille);
+    @PostMapping("/CreateAnimal") // crud
+    public String createAnimal(@ModelAttribute("animalFormDTO") AnimalDTO animalDTO)
+    {
+        String nomFamille = animalDTO.getNomCategorie();
+        Famille famille = appandcardFeignClient.createFamille(nomFamille); // categorie
 
         String nomCategorie = animalDTO.getNomCategorie();
         Categorie categorie = appandcardFeignClient.createCategorie(nomCategorie); // categorie
@@ -73,27 +68,27 @@ public class AnimalController
         String nomStatut = animalDTO.getNomStatut();
         Statut statut = appandcardFeignClient.createStatut(nomStatut); // statut
 
-        String nomPays = animalDTO.getNomPays();
-        Pays pays = appandcardFeignClient.createPays(nomPays); // pays
+        /*String nomPays = animalDTO.getNomPays();
+        Pays pays = appandcardFeignClient.createPays(nomPays); // pays*/
 
         // Création de l'objet Animal et affectation des valeurs
         Animal animal = new Animal();
         animal.setIdFamille(famille);
         animal.setIdCategorie(categorie);
         animal.setIdStatut(statut);
-
         animal.setNom(animalDTO.getNom());
         animal.setTaille(animalDTO.getTaille());
         animal.setRegimAlim(animalDTO.getRegimAlim());
         animal.setDescription(animalDTO.getDescription());
         animal.setPoids(animalDTO.getPoids());
-        // animal.setPpimage(animalFormDTO.getPpimage()); // Assurez-vous de cette ligne si vous avez l'image
+        // animal.setPpimage(animalDTO.getPpimage()); // Assurez-vous de cette ligne si vous avez l'image
 
         // Envoi de l'objet Animal via FeignClient
         appandcardFeignClient.createAnimal(animal);
 
-        return "redirect:/listAnimal";*//*
-    }*/
+        return "redirect:/listAnimal";
+    }
+
 
     // ################### DELETE ##########################
     @GetMapping("/listAnimal")
@@ -111,4 +106,19 @@ public class AnimalController
     }
 
     // ################### UPDATE ##########################
+
+    @GetMapping("/UpdateAnimal/{idAnimal}") // vue
+    public String showUpdateUserForm(@PathVariable("idAnimal") int idAnimal, Model model)
+    {
+        Animal animal = appandcardFeignClient.findAnimalByIdAnimal(idAnimal);
+        model.addAttribute("animal", animal);
+        return "UpdateAnimal/UpdateAnimal";
+    }
+
+   /* @PostMapping("/UpdateAnimal/valid") // crud
+    public String updateAnimal(@ModelAttribute("animalFormDTO") AnimalDTO animalDTO)
+    {
+        appandcardFeignClient.updateAnimal(animalDTO);
+        return "redirect:/listAnimal";
+    }*/
 }

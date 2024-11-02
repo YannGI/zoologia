@@ -1,6 +1,7 @@
 package com.YannGI.appandcard.controller;
 
 import com.YannGI.appandcard.model.Animal;
+import com.YannGI.appandcard.model.Famille;
 import com.YannGI.appandcard.service.AnimalService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,12 +32,21 @@ public class AnimalController
 
     // ############### GET ANIMAL DETAIL ###################
     @GetMapping("/findAnimalByIdAnimal")
-    public Animal findAnimalById (@RequestParam int idAnimal)
+    public Animal findAnimalByIdAnimal(@RequestParam int idAnimal)
     {
         return animalService.findAnimalByIdAnimal(idAnimal);
     }
 
     // ################### CREATE ##########################
+    /*@PostMapping(value = "/createFamille", consumes = "application/json")
+    public Famille createFamille(@RequestParam String nomFamille)
+    {
+        Famille famille = new Famille();
+        *//*famille.setNomFamille(nomFamille);*//*
+        animalService.createFamille(nomFamille);
+        return famille;
+    }*/
+
     /*@PostMapping("createAnimal")
     public Animal createAnimal(@RequestBody Animal animal)
     {
@@ -57,5 +67,17 @@ public class AnimalController
         animalService.deleteAnimal(idAnimal);
     }
 
-    // ################### UPDATE ##########################
+    // ############### UPDATE ####################
+    @GetMapping("/getAnimalByIdAnimal")
+    public Animal getAnimalByIdAnimal(@RequestParam int idAnimal)
+    {
+        return animalService.getAnimalByIdAnimal(idAnimal);
+    }
+
+   /* @PostMapping("/updateAnimal")
+    public AnimalDTO updateAnimal(@RequestBody AnimalDTO animalDTO)
+    {
+        animalService.updateAnimal(animalDTO);
+        return animalDTO;
+    }*/
 }

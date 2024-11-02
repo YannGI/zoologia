@@ -1,7 +1,7 @@
 package com.YannGI.webapp.service.client;
 
-import com.YannGI.webapp.model.Animal;
-import com.YannGI.webapp.model.Utilisateur;
+import com.YannGI.webapp.model.*;
+import com.YannGI.webapp.model.DTO.AnimalDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +36,11 @@ public interface AppandcardFeignClient
     public void deleteUser(@RequestParam int idUser);
 
     // #################### UPDATE #########################
+    @GetMapping(value = "/findUserByIdUser",consumes = "application/json")
+    public Utilisateur findUserByIdUser(@RequestParam int idUser);
 
+    @PostMapping (value = "/updateUser", consumes = "application/json")
+    public ResponseEntity<Utilisateur> updateUser (@RequestBody Utilisateur utilisateur);
 
     // #####################################################
     // ################### CRUD animal #####################
@@ -51,11 +55,8 @@ public interface AppandcardFeignClient
     public Object getAnimalDetail(@RequestParam int idAnimal);
 
     // #################### CREATE #########################
- /*   @PostMapping(value = "/createFamille", consumes = "application/json")
+    @PostMapping(value = "/createFamille", consumes = "application/json")
     public Famille createFamille(@RequestParam String nomFamille); // famille
-
-   @PostMapping(value = "/createFamille", consumes = "application/json")
-    Famille createFamille(@RequestParam("nomFamille") String nomFamille);
 
     @PostMapping(value = "/createCategorie", consumes = "application/json")
     public Categorie createCategorie(String nomCategorie); // categorie
@@ -63,11 +64,11 @@ public interface AppandcardFeignClient
     @PostMapping(value = "/createStatut", consumes = "application/json")
     public Statut createStatut(String nomStatut); // statut
 
-    @PostMapping(value = "/createPays", consumes = "application/json")
-    public Pays createPays(String nomPays); // pays
+   /* @PostMapping(value = "/createPays", consumes = "application/json")
+    public Pays createPays(String nomPays); // pays*/
 
     @PostMapping(value = "/createAnimal", consumes = "application/json")
-    public ResponseEntity<Animal> createAnimal(Animal animal); // animalFormDTO*/
+    public ResponseEntity<Animal> createAnimal(Animal animal); // animalFormDTO
 
     // #################### DELETE #########################
     @GetMapping(value = "/getListPets",consumes = "application/json")
@@ -76,5 +77,11 @@ public interface AppandcardFeignClient
     @DeleteMapping(value = "/deleteAnimal",consumes = "application/json")
     public void deleteAnimal(@RequestParam int idAnimal);
 
+
     // #################### UPDATE #########################
+    @GetMapping(value = "/getAnimalByIdAnimal",consumes = "application/json")
+    public Animal findAnimalByIdAnimal(@RequestParam int idAnimal);
+
+   /* @PostMapping (value = "/updateAnimal", consumes = "application/json")
+    public ResponseEntity<AnimalDTO> updateAnimal (@RequestBody AnimalDTO animalDTO);*/
 }
