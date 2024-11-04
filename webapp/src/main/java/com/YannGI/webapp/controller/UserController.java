@@ -28,13 +28,13 @@ public class UserController
     // #####################################################
     // ################### SECURITY ########################
     // #####################################################
-    @GetMapping("/signup")
+    @GetMapping("/signup") // vue
     public ModelAndView showRegisterForm()
     {
         return new ModelAndView("signup", "userSignUpForm", new Utilisateur());
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/signup") // crud
     public ModelAndView userSignUp(@ModelAttribute("userSignUpForm") Utilisateur userSignUpForm)
     {
         userServiceImpl.registration(userSignUpForm);
@@ -102,7 +102,7 @@ public class UserController
     }
 
     // ################### UPDATE ##########################
-    @GetMapping("/UpdateUser/{idUser}") // vue UpdateUser
+    @GetMapping("/UpdateUser/{idUser}") // vue
     public String showUpdateUserForm(@PathVariable("idUser") int idUser, Model model)
     {
         Utilisateur utilisateur = appandcardFeignClient.findUserByIdUser(idUser);

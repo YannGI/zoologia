@@ -46,6 +46,7 @@
 
     <section class="card-form">
         <form th:action="@{/UpdateUser/valid}" th:object="${utilisateur}" method="post">
+            <input  th:field="*{idUser}" type="text" class="formControlHidden form-crea" name="idUser" placeholder=" tamere">
             <div class="input-group form-group1">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa-solid fa-user"></i></span>

@@ -1779,3 +1779,8 @@ th
 {
     background-color: red;
 }
+
+.formControlHidden
+{
+display: none;
+}

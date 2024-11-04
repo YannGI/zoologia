@@ -56,7 +56,6 @@
         </section>
 
         <section class="main-box">
-
             <div class="main-box-card" th:each="animal : ${animals}">
                 <img class="main-box-card-image" th:src="@{${animal.ppimage}}" alt="">
                 <h2 class="main-box-card-titleName" th:text="${animal.nom}"></h2>
@@ -72,7 +71,6 @@
                     <button class="main-box-card-flexMore-enSavoirPlus"><a th:href="@{getAnimalDetailCard/{idAnimal}(idAnimal=${animal.idAnimal})}">en savoir +</a></button>
                 </div>
             </div>
-            <!-- <p class="main-box-card-paragraphe"> ZOOLOGIA est une application qui a pour but de renseigner le public à propos des animaux en danger ou menacés présents sur nottre planète.</p> -->
         </section>
     </main>
 
