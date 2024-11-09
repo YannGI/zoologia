@@ -1,6 +1,8 @@
 package com.YannGI.appandcard.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Type;
+
 import java.util.List;
 
 @Entity
@@ -32,7 +34,9 @@ public class Animal
     private String nom;
     private String taille;
     private String regimAlim;
+    @Column (length = 2000)
     private String description;
+
     private String poids;
     private String ppimage;
 

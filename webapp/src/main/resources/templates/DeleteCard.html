@@ -66,7 +66,7 @@
                         <td th:text="*{animal.idCategorie.nomCategorie}"></td>
                         <td th:text="*{animal.idFamille.nomFamille}"></td>
                         <td class="text-center">
-                            <a th:href="@{/UpdateAnimal/{id}(id=${animal.idAnimal})}">Modif</a>
+                            <a th:href="@{/UpdateAnimal/{idAnimal}(idAnimal=${animal.idAnimal})}">Modif</a>
                             <td>
                                 <button class="deleteBTN"><a class="aDeleteBTN"  th:href="@{/deleteCardAnimal/{id}(id=${animal.idAnimal})}">Suppr</a></button>
                             </td>

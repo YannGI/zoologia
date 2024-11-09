@@ -1,7 +1,6 @@
 package com.YannGI.appandcard.service;
 
 import com.YannGI.appandcard.model.Animal;
-import com.YannGI.appandcard.model.Famille;
 import com.YannGI.appandcard.repository.AnimalRepository;
 import org.springframework.stereotype.Service;
 
@@ -34,15 +33,10 @@ public class AnimalService
     }
 
     // ################### CREATE ##########################
-  /*  public Famille createFamille(String nomFamille)
-    {
-        return animalRepository.save(nomFamille);
-    }*/
-
-    /*public Animal createAnimal(Animal animal)
+    public Animal createAnimal(Animal animal)
     {
         return animalRepository.save(animal);
-    }*/
+    }
 
     // ################### DELETE ##########################
     public List<Animal> getListPets()
@@ -61,8 +55,7 @@ public class AnimalService
         return animalRepository.findAnimalByIdAnimal(idAnimal).get();
     }
 
-
-   /* public Animal updateAnimal(Animal animal)
+    /*public Animal updateAnimal(Animal animal)
     {
         return animalRepository.save(animal);
     }*/

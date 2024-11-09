@@ -45,6 +45,7 @@
         <h2 class="titleCreaC">MODIFIER ANIMAL-CARD</h2>
         <section class="card-form">
             <form th:action="@{/CreateAnimal}" th:object="${animal}" method="post">
+                <input  th:field="*{idAnimal}" type="text" class="formControlHidden form-crea" name="idAnimal" placeholder="">
                 <div class="input-group form-group1">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-otter f"></i></span>
@@ -69,30 +70,30 @@
                     </div>
                     <input th:field="*{regimAlim}" type="text" class="form-control form-crea2" name="regimAlim" placeholder=" regimeAlimentaire">
                 </div>
-                <!--<div class="input-group form-group5">
+                <div class="input-group form-group5">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-people-group f"></i></span>
                     </div>
-                    <input th:text="*{idFamille.nonFamille}" type="text" class="form-control form-crea" name="nonFamille" placeholder=" famille">
+                    <input th:field="${animal.idFamille.nomFamille}" type="text" class="form-control form-crea" name="nonFamille" placeholder=" famille">
                 </div>
                 <div class="input-group form-group6">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-paw f"></i></span>
                     </div>
-                    <input th:field="*{idCategorie.nomCategorie}" type="text" class="form-control form-crea2" name="categorie" placeholder=" categorie">
+                    <input th:field="${animal.idCategorie.nomCategorie}" type="text" class="form-control form-crea2" name="categorie" placeholder=" categorie">
                 </div>
-                <div class="input-group form-group7">
+                <!--<div class="input-group form-group7">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-map-location-dot f"></i></span>
                     </div>
-                    <input th:field="*{idPays.nomPays}" type="text" class="form-control form-crea" name="pays" placeholder=" pays">
-                </div>
+                    <input th:field="${animal.idPays.nomPays}" type="text" class="form-control form-crea" name="pays" placeholder=" pays">
+                </div>-->
                 <div class="input-group form-group8">
                     <div class="input-group-prepend">
                         <span class="input-group-text ff"><i class="fa-solid fa-temperature-half f"></i></span>
                     </div>
-                    <input th:field="*{idStatut.nomStatut}" type="text" class="form-control form-crea2" name="statut" placeholder=" statut">
-                </div>-->
+                    <input th:field="${animal.idStatut.nomStatut}" type="text" class="form-control form-crea2" name="statut" placeholder=" statut">
+                </div>
                 <div class="input-group form-group9">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-pen f"></i></span>

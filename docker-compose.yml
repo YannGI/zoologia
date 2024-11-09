@@ -80,6 +80,23 @@ services:
       SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071/"
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eurekaserver:8070/eureka/"
 
+  mongo:
+    image: yanngirardo/zoologia_mongo:latest
+    mem_limit: 700m
+    ports:
+      - "8074:8074"
+    networks:
+      - zoologia
+    depends_on:
+      eurekaserver:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      SPRING_CONFIG_IMPORT: optional:configserver:http://configserver:8071/
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eurekaserver:8070/eureka/"
+      SPRING_DATA_MONGODB_PORT: 27017
+      SPRING_DATA_MONGODB_HOST: mongodb
+
   mysql:
     image: mysql
     container_name: mysql_zoologia
@@ -94,6 +111,18 @@ services:
       retries: 10
     ports:
       - 3307:3306
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: Yann*060103
+      MONGO_INITDB_DATABASE: mongozoologia
+    ports:
+      - 27018:27017
+    networks:
+      - zoologia
 
 networks:
   zoologia:

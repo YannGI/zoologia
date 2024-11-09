@@ -59,16 +59,16 @@ public interface AppandcardFeignClient
     public Famille createFamille(@RequestParam String nomFamille); // famille
 
     @PostMapping(value = "/createCategorie", consumes = "application/json")
-    public Categorie createCategorie(String nomCategorie); // categorie
+    public Categorie createCategorie(@RequestParam String nomCategorie); // categorie
 
     @PostMapping(value = "/createStatut", consumes = "application/json")
-    public Statut createStatut(String nomStatut); // statut
+    public Statut createStatut(@RequestParam String nomStatut); // statut
 
-   /* @PostMapping(value = "/createPays", consumes = "application/json")
-    public Pays createPays(String nomPays); // pays*/
+    @PostMapping(value = "/createPays", consumes = "application/json")
+    public Pays createPays(@RequestParam String nomPays); // pays
 
     @PostMapping(value = "/createAnimal", consumes = "application/json")
-    public ResponseEntity<Animal> createAnimal(Animal animal); // animalFormDTO
+    public ResponseEntity<Animal> createAnimal(@RequestBody Animal animal); // animalFormDTO
 
     // #################### DELETE #########################
     @GetMapping(value = "/getListPets",consumes = "application/json")

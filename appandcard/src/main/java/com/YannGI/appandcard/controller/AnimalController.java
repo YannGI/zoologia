@@ -1,8 +1,7 @@
 package com.YannGI.appandcard.controller;
 
-import com.YannGI.appandcard.model.Animal;
-import com.YannGI.appandcard.model.Famille;
-import com.YannGI.appandcard.service.AnimalService;
+import com.YannGI.appandcard.model.*;
+import com.YannGI.appandcard.service.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,11 +11,20 @@ import java.util.List;
 public class AnimalController
 {
     private final AnimalService animalService;
+    private final CategorieService categorieService;
+    private final FamilleService familleService;
+    private final StatutService statutService;
+    private final PaysService paysService;
 
-    public AnimalController(AnimalService animalService)
+    public AnimalController(AnimalService animalService, CategorieService categorieService, FamilleService familleService, StatutService statutService, PaysService paysService)
     {
         this.animalService = animalService;
+        this.categorieService = categorieService;
+        this.familleService = familleService;
+        this.statutService = statutService;
+        this.paysService = paysService;
     }
+
 
     // #####################################################
     // ################### CRUD animal #####################
@@ -38,21 +46,36 @@ public class AnimalController
     }
 
     // ################### CREATE ##########################
-    /*@PostMapping(value = "/createFamille", consumes = "application/json")
+    @PostMapping(value = "/createFamille", consumes = "application/json")
     public Famille createFamille(@RequestParam String nomFamille)
     {
-        Famille famille = new Famille();
-        *//*famille.setNomFamille(nomFamille);*//*
-        animalService.createFamille(nomFamille);
-        return famille;
-    }*/
 
-    /*@PostMapping("createAnimal")
+        return familleService.createFamille(nomFamille);
+    }
+
+    @PostMapping(value = "/createCategorie", consumes = "application/json")
+    public Categorie createCategorie(@RequestParam String nomCategorie)
+    {
+       return categorieService.createCategorie(nomCategorie);
+    }
+
+    @PostMapping(value = "/createStatut", consumes = "application/json")
+    public Statut createStatut(@RequestParam String nomStatut)
+    {
+        return statutService.createStatut(nomStatut);
+    }
+
+    @PostMapping(value = "/createPays", consumes = "application/json")
+    public Pays createPays(@RequestParam String nomPays)
+    {
+        return paysService.createPays(nomPays);
+    }
+
+    @PostMapping("/createAnimal")
     public Animal createAnimal(@RequestBody Animal animal)
     {
-        animalService.createAnimal(animal);
-        return animal;
-    }*/
+        return animalService.createAnimal(animal);
+    }
 
     // ################### DELETE ##########################
     @GetMapping("/getListPets")

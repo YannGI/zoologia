@@ -59,7 +59,7 @@ public class AnimalController
     @PostMapping("/CreateAnimal") // crud
     public String createAnimal(@ModelAttribute("animalFormDTO") AnimalDTO animalDTO)
     {
-        String nomFamille = animalDTO.getNomCategorie();
+        String nomFamille = animalDTO.getNonFamille();
         Famille famille = appandcardFeignClient.createFamille(nomFamille); // categorie
 
         String nomCategorie = animalDTO.getNomCategorie();
@@ -68,27 +68,26 @@ public class AnimalController
         String nomStatut = animalDTO.getNomStatut();
         Statut statut = appandcardFeignClient.createStatut(nomStatut); // statut
 
-        /*String nomPays = animalDTO.getNomPays();
-        Pays pays = appandcardFeignClient.createPays(nomPays); // pays*/
+        String nomPays = animalDTO.getNomPays();
+        Pays pays = appandcardFeignClient.createPays(nomPays); // pays
 
-        // Création de l'objet Animal et affectation des valeurs
+
         Animal animal = new Animal();
         animal.setIdFamille(famille);
         animal.setIdCategorie(categorie);
         animal.setIdStatut(statut);
+        animal.setIdPays(pays);
         animal.setNom(animalDTO.getNom());
         animal.setTaille(animalDTO.getTaille());
         animal.setRegimAlim(animalDTO.getRegimAlim());
         animal.setDescription(animalDTO.getDescription());
         animal.setPoids(animalDTO.getPoids());
-        // animal.setPpimage(animalDTO.getPpimage()); // Assurez-vous de cette ligne si vous avez l'image
+        animal.setPpimage(animalDTO.getPpImage());
 
-        // Envoi de l'objet Animal via FeignClient
         appandcardFeignClient.createAnimal(animal);
 
         return "redirect:/listAnimal";
     }
-
 
     // ################### DELETE ##########################
     @GetMapping("/listAnimal")

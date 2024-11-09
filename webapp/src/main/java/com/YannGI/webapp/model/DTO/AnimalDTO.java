@@ -1,7 +1,6 @@
 package com.YannGI.webapp.model.DTO;
 
-public class AnimalDTO
-{
+public class AnimalDTO {
     private String nomStatut;
     private String nomCategorie;
     private String nonFamille;
@@ -16,8 +15,7 @@ public class AnimalDTO
     public AnimalDTO() {
     }
 
-    public AnimalDTO(String nomStatut, String nomCategorie, String nonFamille, String nomPays, String nom, String taille, String regimAlim, String description, String poids, String ppImage)
-    {
+    public AnimalDTO(String nomStatut, String nomCategorie, String nonFamille, String nomPays, String nom, String taille, String regimAlim, String description, String poids, String ppImage) {
         this.nomStatut = nomStatut;
         this.nomCategorie = nomCategorie;
         this.nonFamille = nonFamille;
@@ -110,4 +108,5 @@ public class AnimalDTO
         this.ppImage = ppImage;
     }
 }
+
 
