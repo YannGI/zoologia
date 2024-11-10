@@ -8,6 +8,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/6eb4e0002f.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jaini&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+    </style>
   <title>Descriptif_Animal</title>
 </head>
 
@@ -49,14 +52,14 @@
 
             <section class="main-content-cardDescription">
                 <div class="main-content-cardDescription-descript">
-                    <h1 class="main-content-cardDescription-descript-titleCard" th:text="${animal.nom}"></h1>
+                    <h2 class="main-content-cardDescription-descript-titleCard" th:text="${animal.nom}"></h2>
                     <div class="main-content-cardDescription-descript-ptflex">
-                        <h3 class="main-content-cardDescription-descript-ptflex-infoPoids" th:text="'poids: ' + ${animal.poids}"></h3><!--<i class="fa-solid fa-weight-scale"></i>-->
-                        <h3 class="main-content-cardDescription-descript-ptflex-infoTaille" th:text="'taille: ' + ${animal.taille}"></h3><!--<i class="fa-solid fa-ruler-vertical"></i>-->
-                        <h3 class="main-content-cardDescription-descript-ptflex-infoRegimAlim" th:text="'régime alimentaire: ' + ${animal.regimAlim}"></h3><!--<i class="fa-solid fa-utensils"></i>-->
-                        <h3 class="main-content-cardDescription-descript-ptflex-famille" th:text="'famille: ' + ${animal.idFamille.nomFamille}"></h3><!--<i class="fa-solid fa-people-group"></i>-->
-                        <h3 class="main-content-cardDescription-descript-ptflex-categorie" th:text="'catégorie: ' + ${animal.idCategorie.nomCategorie}"></h3><!--<i class="fa-solid fa-paw"></i>-->
-                        <h3 class="main-content-cardDescription-descript-ptflex-pays">Lieux de vie: France, Amérique</h3><!--${animal.idPays.nomPays}--><!--<i class="fa-solid fa-map-location-dot"></i>-->
+                        <h3 class="main-content-cardDescription-descript-ptflex-infoPoids" th:text="'poids: ' + ${animal.poids}"></h3>
+                        <h3 class="main-content-cardDescription-descript-ptflex-infoTaille" th:text="'taille: ' + ${animal.taille}"></h3>
+                        <h3 class="main-content-cardDescription-descript-ptflex-infoRegimAlim" th:text="'régime alimentaire: ' + ${animal.regimAlim}"></h3>
+                        <h3 class="main-content-cardDescription-descript-ptflex-famille" th:text="'famille: ' + ${animal.idFamille.nomFamille}"></h3>
+                        <h3 class="main-content-cardDescription-descript-ptflex-categorie" th:text="'catégorie: ' + ${animal.idCategorie.nomCategorie}"></h3>
+                        <h3 class="main-content-cardDescription-descript-ptflex-pays">pays: France</h3>
                         <h3 class="main-content-cardDescription-descript-ptflex-statut" th:text="${animal.idStatut.nomStatut}"></h3>
                     </div>
                     <p class="maincontent-cardDescription-descript-paragrapheDescription"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates saepe fugiat, quidem rerum maxime repellat impedit magni, quis animi dolorem aut ea minima nobis provident ratione! Officiis praesentium nemo assumenda!

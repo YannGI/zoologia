@@ -9,12 +9,12 @@ public class Utilisateur
     private String email;
     private String password;
     private String usertype;
-    private String sirette;
+    private String siret;
 
     public Utilisateur() {
     }
 
-    public Utilisateur(Integer idUser, String firstname, String lastname, String username, String email, String password, String usertype, String sirette) {
+    public Utilisateur(Integer idUser, String firstname, String lastname, String username, String email, String password, String usertype, String siret) {
         this.idUser = idUser;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -22,7 +22,7 @@ public class Utilisateur
         this.email = email;
         this.password = password;
         this.usertype = usertype;
-        this.sirette = sirette;
+        this.siret = siret;
     }
 
     public Integer getIdUser() {
@@ -81,11 +81,11 @@ public class Utilisateur
         this.usertype = usertype;
     }
 
-    public String getSirette() {
-        return sirette;
+    public String getSiret() {
+        return siret;
     }
 
-    public void setSirette(String sirette) {
-        this.sirette = sirette;
+    public void setSiret(String siret) {
+        this.siret = siret;
     }
 }

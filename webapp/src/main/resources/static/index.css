@@ -373,7 +373,7 @@ input:focus
   margin-bottom: 1em;
   padding : 0.05em;
   font-size: 1.25em;
-  color: #ff8000;
+  color: #ffae00;
   text-shadow:  0 0 4px #ff8400, 0 0 6px #ff8b0eb6;
   font-family: "Playfair Display SC", serif;
 }
@@ -386,7 +386,7 @@ input:focus
   margin-bottom: 1em;
   padding : 0.05em;
   font-size: 1.25em;
-  color: #ff1100;
+  color: #ffae00;
   text-shadow:  0 0 4px #ff0000, 0 0 6px #ff2a0eb6;
   font-family: "Playfair Display SC", serif;
 }
@@ -399,7 +399,7 @@ input:focus
   margin-bottom: 1em;
   padding : 0.05em;
   font-size: 1.25em;
-  color: #ff1100;
+  color: #ffae00;
   text-shadow:  0 0 4px #ff4800, 0 0 6px #fe1e00a5;
   font-family: "Playfair Display SC", serif;
 }

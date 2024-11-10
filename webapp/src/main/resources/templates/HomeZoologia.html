@@ -31,10 +31,10 @@
                 </div>
 
                 <div class="contain-navbar-buttons">
-                    <button class="btn active"><i class="fa-solid fa-house"></i> <a th:href="@{/HomeZoologia}"> ACCUEIL</a> </button>
-                    <button class="btn"><i class="fa-solid fa-heart-circle-check"></i> <a th:href="@{/Favoris}"> FAVORIS</a> </button>
-                    <button class="btn"> <i class="fa-solid fa-user"></i> <a th:href="@{/DetailCompte}"> COMPTE</a> </button>
-                    <button class="btn"><i class="fa-solid fa-display"></i><a th:href="@{/ModifAppMenu}"> L'APPLI</a> </button>
+                    <button class="btn active"><i class="fa-solid fa-house"></i><a th:href="@{/HomeZoologia}"> ACCUEIL</a></button>
+                    <button class="btn"><i class="fa-solid fa-heart-circle-check"></i><a th:href="@{/Favoris}"> FAVORIS</a></button>
+                    <button class="btn"> <i class="fa-solid fa-user"></i><a th:href="@{/DetailCompte}"> COMPTE</a></button>
+                    <button class="btn"><i class="fa-solid fa-display"></i><a th:href="@{/ModifAppMenu}"> L'APPLI</a></button>
                 </div>
                 <button class="btn menuburger"><i class="fa-solid fa-bars"></i></button>
             </div>
@@ -61,8 +61,8 @@
                 <h2 class="main-box-card-titleName" th:text="${animal.nom}"></h2>
                 <h3 class="main-box-card-etiquetteCard1" th:text="${animal.idStatut.nomStatut}"></h3>
                 <div class="main-box-card-divFam">
-                    <h3 class="main-box-card-divFam-famille" th:text="${animal.idFamille.nomFamille}"></h3><!--<i class="fa-solid fa-people-group"></i>-->
-                    <h3 class="main-box-card-divFam-categorie" th:text="${animal.idCategorie.nomCategorie}"></h3><!--<i class="fa-solid fa-paw"></i>-->
+                    <h3 class="main-box-card-divFam-famille" th:text="${animal.idFamille.nomFamille}"></h3>
+                    <h3 class="main-box-card-divFam-categorie" th:text="${animal.idCategorie.nomCategorie}"></h3>
                 </div>
                 <div class="main-box-card-flexMore">
                     <button class="main-box-card-flexMore-addMyList">

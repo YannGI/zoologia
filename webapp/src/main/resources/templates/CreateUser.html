@@ -43,7 +43,7 @@
 
     <main>
         <h2 class="titleCreaC">CREER UN UTILISATEUR</h2>
-        
+
         <section class="card-form">
             <form th:action="@{/CreateUser/valid}" th:object="${utilisateur}" method="post">
                 <div class="input-group form-group1">
@@ -92,15 +92,14 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa-solid fa-file-signature"></i></span>
                     </div>
-                    <input th:field="*{sirette}" type="text" class="form-control form-crea" name="sirette" placeholder=" sirette">
-                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('sirette')}" th:errors="*{sirette}"></p>
+                    <input th:field="*{siret}" type="text" class="form-control form-crea" name="siret" placeholder=" siret">
+                    <p class="text-danger" style="display:none" th:if="${#fields.hasErrors('siret')}" th:errors="*{siret}"></p>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="valider" class="btn btnFCreaUser">
                 </div>
             </form>
         </section>
-        <!-- <img  class="imgCreaC" src="IMG/creaCardBlackRE.jpg" alt=""> -->
     </main>
     <script src="MenuBurgerScript.js"></script>
 </body>
