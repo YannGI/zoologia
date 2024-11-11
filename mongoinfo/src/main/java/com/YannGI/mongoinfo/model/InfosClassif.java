@@ -1,4 +1,4 @@
-package com.YannGI.mongo.model;
+package com.YannGI.mongoinfo.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

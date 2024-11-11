@@ -1,15 +1,15 @@
-package com.YannGI.mongo.service;
+package com.YannGI.mongoinfo.service;
 
-import com.YannGI.mongo.model.InfosClassif;
-import com.YannGI.mongo.repository.InfosClassifRepository;
+import com.YannGI.mongoinfo.model.InfosClassif;
+import com.YannGI.mongoinfo.repository.InfosClassifRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class InfosClassifService
+public class InfosCassifService
 {
     private final InfosClassifRepository infosClassifRepository;
 
-    public InfosClassifService(InfosClassifRepository infosClassifRepository)
+    public InfosCassifService(InfosClassifRepository infosClassifRepository)
     {
         this.infosClassifRepository = infosClassifRepository;
     }

@@ -1,6 +1,6 @@
-package com.YannGI.mongo.repository;
+package com.YannGI.mongoinfo.repository;
 
-import com.YannGI.mongo.model.InfosClassif;
+import com.YannGI.mongoinfo.model.InfosClassif;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

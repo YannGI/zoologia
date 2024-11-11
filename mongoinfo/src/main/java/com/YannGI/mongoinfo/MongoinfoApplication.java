@@ -1,4 +1,4 @@
-package com.YannGI.mongo;
+package com.YannGI.mongoinfo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @EnableFeignClients
 @SpringBootApplication
-public class MongoApplication
-{
-	public static void main(String[] args)
-	{
-		SpringApplication.run(MongoApplication.class, args);
+public class MongoinfoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MongoinfoApplication.class, args);
 	}
+
 }

@@ -80,8 +80,8 @@ services:
       SPRING_CONFIG_IMPORT: "configserver:http://configserver:8071/"
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eurekaserver:8070/eureka/"
 
-  mongo:
-    image: yanngirardo/zoologia_mongo:latest
+  mongoinfo:
+    image: yanngirardo/zoologia_mongoinfo:latest
     mem_limit: 700m
     ports:
       - "8074:8074"

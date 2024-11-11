@@ -9,10 +9,14 @@
         <module name="webapp" />
         <module name="eurekaserver" />
         <module name="mongo" />
+        <module name="mongoinfo" />
         <module name="configserver" />
         <module name="appandcard" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="mongo" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
@@ -20,6 +24,7 @@
       <module name="configserver" options="-parameters" />
       <module name="eurekaserver" options="-parameters" />
       <module name="mongo" options="-parameters" />
+      <module name="mongoinfo" options="-parameters" />
       <module name="webapp" options="-parameters" />
     </option>
   </component>
