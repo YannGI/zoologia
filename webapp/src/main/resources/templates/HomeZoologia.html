@@ -68,7 +68,7 @@
                     <button class="main-box-card-flexMore-addMyList">
                         <i class="fa-solid fa-heart"></i>
                     </button>
-                    <button class="main-box-card-flexMore-enSavoirPlus"><a th:href="@{getAnimalDetailCard/{idAnimal}(idAnimal=${animal.idAnimal})}">en savoir +</a></button>
+                    <button class="main-box-card-flexMore-enSavoirPlus"><a th:href="@{/getAnimalDetailCard/{idAnimal}(idAnimal=${animal.idAnimal})}">en savoir +</a></button>
                 </div>
             </div>
         </section>
@@ -94,10 +94,10 @@
                 </div>
                 <div class="spoke"></div>
             </div>
-            <div class="Footer-contain-img"></div>
+            <div class="Footer-contain-img" th:object="${InfosClassif}"></div>
             <ul class="Footer-contain-list">
+                <li><a th:href="@{/getInfosClassif}">Infos classification</a></li>
                 <li><a href="#">Nous contacter</a></li>
-                <li><a href="#">Nos services</a></li>
                 <li><a href="#">Politique de confidentialité</a></li>
                 <li><a href="#">Thermes et conditions</a></li>
                 <li><a href="#">Carrière</a></li>

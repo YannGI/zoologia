@@ -1978,5 +1978,59 @@ th
 
 .formControlHidden
 {
-display: none;
+    display: none;
+}
+
+/*________________________________________________________________________________________________________________________*/
+
+/* ############################################################" */
+/* ####################   InfosClassif  #########################" */
+/* ############################################################" */
+
+.main-content-cardDescription-imagePP-imgClassif
+{
+  height: 32em;
+  width: 32em;
+  border-radius: 20px;
+  position: absolute;
+  right: 3.5em;
+  top: 13.25em;
+  z-index: 20;
+  border: solid 0.04em #000000;
+  /* animation: rotationIMG 12s infinite linear; */
+}
+
+.main-content-cardDescriptionInfoClassif
+{
+  padding: 0.5em;
+  background-color: #000000e3;
+  width:60%;
+  margin-top:13.85em;
+  position: relative;
+  z-index:10;
+  border-radius: 20px 20px 20px 20px;
+  color: rgb(255, 255, 255);
+  box-shadow:  0 0 10px #f99500, 0 0 11.5px #ffc823d4;
+  margin-bottom: 0.15em;
+  margin-right: 22.5em;
+  max-height:42em;
+}
+
+.main-content-cardDescription-descript-titleCardInfoClassif
+{
+  text-align: center;
+  color: #ffffff;
+  text-shadow:  0 0 5px #ff8400, 0 0 6px #ff8b0eb6;
+  font-family: "Playfair Display SC", serif;
+  font-size: 3em;
+  margin: 0em;
+  margin-bottom: 0.78em;
+}
+
+.main-content-cardDescription-descript-ptflex-categorieInfosClassif
+{
+  font-size: 1.22em;
+  text-decoration: underline;
+  margin: 0.2em;
+  color:#ffae00;
 }
