@@ -55,8 +55,24 @@
             </div>
         </section>
 
+       <!-- <section class="filters">
+            <select id="familyFilter">
+                <option value="">Toutes les Familles</option>
+                <option value="vertébré">Vertébré</option>
+                <option value="arthropode">Arthropode</option>
+                <option value="mollusque">Mollusque</option>
+            </select>
+            <select id="categoryFilter">
+                <option value="">Toutes les Catégories</option>
+                <option value="mammifère">Mammifère</option>
+                <option value="oiseau">Oiseau</option>
+                <option value="squamate">Squamate</option>
+                <option value="crocodilien">Crocodilien</option>
+            </select>
+        </section>-->
+
         <section class="main-box">
-            <div class="main-box-card" th:each="animal : ${animals}">
+            <div class="main-box-card" th:each="animal : ${animals}" data-family="${animal.idFamille.nomFamille}" data-category="${animal.idCategorie.nomCategorie}">
                 <img class="main-box-card-image" th:src="@{${animal.ppimage}}" alt="">
                 <h2 class="main-box-card-titleName" th:text="${animal.nom}"></h2>
                 <h3 class="main-box-card-etiquetteCard1" th:text="${animal.idStatut.nomStatut}"></h3>
@@ -65,13 +81,12 @@
                     <h3 class="main-box-card-divFam-categorie" th:text="${animal.idCategorie.nomCategorie}"></h3>
                 </div>
                 <div class="main-box-card-flexMore">
-                    <button class="main-box-card-flexMore-addMyList">
-                        <i class="fa-solid fa-heart"></i>
-                    </button>
+                    <button class="main-box-card-flexMore-addMyList"><i class="fa-solid fa-heart"></i></button>
                     <button class="main-box-card-flexMore-enSavoirPlus"><a th:href="@{/getAnimalDetailCard/{idAnimal}(idAnimal=${animal.idAnimal})}">en savoir +</a></button>
                 </div>
             </div>
         </section>
+
     </main>
 
     <footer class="Footer">
@@ -108,4 +123,5 @@
         </section>
     </footer>
     <script src="MenuBurgerScript.js"></script>
+    <script src="ScriptCard.js"></script>
 </body>
